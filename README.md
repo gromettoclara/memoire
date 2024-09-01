@@ -16,7 +16,7 @@ Description
 
 1. Principaux :
 
-- Module `vectorization` pour l'API Discover-Demo : L'intégralité du code se trouve ici.
+- Module `vectorization` pour l'API Discover-Demo : L'intégralité du code se trouve [ici](vectorization_module_api).
 - Module `vectorization` pour l'application AIKON : Une description des développements, accompagnée d'extraits de code, se trouve ici.
 - Interfaces : Une description des développements, accompagnée de captures d'écran et d'extraits de code, se trouve ici.
 
