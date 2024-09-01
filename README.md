@@ -2,7 +2,7 @@
 
 Ce dépôt rassemble l'ensemble des livrables techniques et le mémoire réalisés dans le cadre de mon stage de M2 TNAH au sein de l'équipe d'histoire des sciences du laboratoire SYRTE de l'Observatoire de Paris, du 02/04/2024 au 31/07/2024.
 
-# Objectif du stage :
+# Objectif du stage
 
 La plateforme AIKON -- anciennement EIDA -- est déjà dotée d’une chaîne de traitement partiellement automatisée qui intègre des fonctionnalités d’extraction et de recherche de similarités basés sur l'IA. Ces traitements permettent de repérer et de comparer des éléments visuels, en l’occurrence des diagrammes, au sein d’une base de données constituée d’images numérisées provenant de sources variées : institutions de conservation ou collections personnelles. La prochaine étape dans le développement de la plateforme consiste en l’implémentation de la fonctionnalité de vectorisation des diagrammes extraits, visant à affiner encorele niveau de structuration de l’information. Ce processus transforme une image en un ensemble de formes géométriques élémentaires, appelées primitives. Cette représentation, particulièrement adaptée au traitement informatique, permet de traduire les informations visuelles en structures mathématiques, facilitant ainsi leur manipulation, leur analyse etleur exploitation par des méthodes computationnelles.
 
