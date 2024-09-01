@@ -22,6 +22,6 @@ Description
 
 3. Secondaires :
 
-- Le cahier des charges pour l'implémentation de la vectorisation dans la plateforme AIKON se trouve ici. 
-- Les slides du DH Seminar du 23 juillet 2024, centré autour de la question de l'exploitation de la vectorisation pour l'édition, se trouve ici.
-- Une documentation destinée aux chercheurs pour la prise en main des nouvelles interfaces se trouve ici. 
+- Le cahier des charges pour l'implémentation de la vectorisation dans la plateforme AIKON se trouve [ici](documentation/cahier_des_charges.pdf). 
+- Les slides du DH Seminar du 23 juillet 2024, centré autour de la question de l'exploitation de la vectorisation pour l'édition, se trouve [ici](documentation/slides_DH_seminar.pdf).
+- Une documentation destinée aux chercheurs pour la prise en main des nouvelles interfaces se trouve [ici](documentation/doc_interfaces.pdf). 
