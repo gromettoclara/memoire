@@ -10,7 +10,7 @@ Mon stage au sein de l’équipe d’histoire des sciences du laboratoire SYRTE 
 
 # Structure du dépôt
 
-- memoire : Contient le code Latex du mémoire, [ici](memoire/main.pdf) un accès direct PDF. Les annexes consituent en soi des livrables techniques. 
+- memoire : Contient le code Latex du mémoire, [ici](memoire/main.pdf) un accès direct PDF. Les annexes consituent en soi des livrables techniques, elles ont donc été découpées et séparées pour pouvoir être consultées à part. 
 - vectorization_module_api : Contient le code source du module `vectorization` développé pour l'API Discover-Demo, dont le code source intégral est disponible également [ici](https://github.com/Evarin/discover-demo).
 - documentation : Contient la documentation technique ainsi que les présentations rédigées dans le cadre du stage.
 
