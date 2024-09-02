@@ -1,0 +1,32 @@
+Si \gaga distingue
+clairement l'élaboration de la pipeline de traitement et
+d'enrichissement des données de la construction des modèles eux-mêmes (la chaîne de traitement étant destinée à tester et appliquer les modèles sur les données) le projet se donne également pour ambition de développer des modèles \htr et \tal
+personnalisés, capables de traiter des corpus de données larges et
+hétérogènes.
+
+Un modèle \htr se spécialise sur une écriture particulière
+grâce à son entraînement, et cela suppose d'autoriser dans la pipeline
+une bascule entre différents modèles. De fait, elle est conçue pour
+implémenter tout modèle fourni par l'utilisateur lors de l'installation
+(à condition qu'il soit basé sur le moteur Kraken). Alors, la chaîne de
+traitement peut faire office de ``coquille vide'', de prototype
+modulable contenant les briques fonctionnelles conditionnées par les
+données, leur spécificité, leur origine.
+
+L'\htr désigne le processus d'extraction automatique du contenu textuel
+utilisant le \ml, souvent faisant appel à des réseaux de
+neurones, pour identifier les caractères ou les mots à partir des
+\emph{features} extraites. L'entraînement d'un
+modèle d'\htr nécessite de pouvoir itérer sur plusieurs étapes après
+soumission d'un \textit{dataset} d'entraînement. Les étapes consistent en des
+traitements préliminaires sur l'image d'entrée, la segmentation de la
+page, la prédiction du texte par les modèles, sa correction par
+l'humain, puis le renvoi des données dans le \textit{workflow} pour
+spécialiser le modèle (pour qu'il ``apprenne'')\footnote{Le \hyperlink{chapitre-4-modele}{chapitre 4} de ce mémoire porte spécifiquement sur le fonctionnement des réseaux de neurones.}.
+
+Les données pour l'\htr (des corpus annotés) ont été réalisés grâce à
+e-Scriptorium. e-Scriptorium\footcite{noauthor_escriptorium_nodate}, porteuse du concept de modularité, est une plateforme logicielle qui offre un cadre de travail complet pour la transcription numérique de documents, qu'ils soient imprimés ou manuscrits. Elle modélise l'ensemble du processus de transcription, de la préparation des images à la correction finale. En effet, e-Scriptorium propose une pipeline intégrant plusieurs étapes : l'importation d'images, la segmentation des lignes et blocs de texte, la transcription en elle-même (grâce aux modèle d'\ocr et \htr), sa correction par l'œil humain, et l'exportation des transcriptions. Ainsi, il offre un environnement complet pour construire, tester et utiliser des modèles de transcription adaptés à différents types de documents. 
+
+e-Scriptorium dispose de plusieurs moyens d'être utilisé. L'application doit être déployée sur un serveur Web installé sur un ordinateur personnel ou sur une machine dédiée. Les capacités de calcul du matériel employé faisant ensuite la différence au moment de faire tourner Kraken (le moteur \htr), en particulier lors des entraînements. Elle dispose d'une interface graphique facilitant la prise en main des processus. Afin d'effectuer la transcription des labels présents dans les figures, \eida prévoit d'insérer une instance de e-Scriptorium à sa propre pipeline. Cette solution technique démontre la grande modularité de e-Scriptorium, composant autonome ou bloc fonctionnel au sein d'un système plus complexe.
+
+En développant la plateforme web \aikon, \eida et \vhs visent à apporter à l'image ce que e-Scriptorium permet pour le texte : la plateforme vise à devenir un outil modulable qui sous-tend une approche globale du traitement de l'image basée sur la vision artificielle. 

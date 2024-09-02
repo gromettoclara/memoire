@@ -1,0 +1,796 @@
+\documentclass[a4paper,12pt,twoside]{book}
+\usepackage[T1]{fontenc}
+\usepackage{inputenc}
+\usepackage{fontspec}
+\usepackage{lmodern}
+\usepackage[english,french]{babel}
+\usepackage{xspace} % pour la gestion des espaces après les commandes
+\usepackage{minted}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{float}
+
+
+% Mise en page École des chartes
+\usepackage[margin=2.5cm]{geometry} % marges
+\usepackage{setspace}
+\onehalfspacing % interligne de 1.5
+\setlength\parindent{1cm}
+
+% Biblio
+\usepackage[backend=biber, sorting=nyt, style=enc, minbibnames=10, maxbibnames=10]{biblatex}
+\addbibresource{bibliographie/biblio.bib}
+\nocite{*}
+\defbibnote{intro}{Cette bibliographie présente toutes les ressources utilisées, de tout type, citées ou non, classées thématiquement.}
+
+% Blocs de code
+\usepackage{listings}
+\usepackage{color}
+
+% Couleurs personnalisées
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{keywordcolor}{rgb}{0.5,0.0,0.5}
+\definecolor{stringcolor}{rgb}{0.8,0.2,0.2}
+\definecolor{functioncolor}{rgb}{0.1,0.5,0.1}
+\definecolor{csscolor}{rgb}{0.1,0.4,0.8}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{ocherCode}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{blueCode}{rgb}{0, 0, 0.93} % #0000EE -> rgb(0, 0, 238)
+\definecolor{greenCode}{rgb}{0, 0.6, 0} % #009900 -> rgb(0, 153, 0) 
+
+% Paramètres globaux
+\lstset{
+	basicstyle=\ttfamily\small,
+	columns=fullflexible,
+	showstringspaces=false,
+	commentstyle=\color{gray}\upshape,
+	captionpos=b,
+	backgroundcolor=\color{lightgray},
+}
+
+% Style pour le langage Python
+\lstdefinelanguage{Python}{
+	morekeywords={def, return, if, elif, else, for, while, break, continue, and, or, not, in, import, from, as, class, pass, True, False, None, lambda},
+	keywordstyle=\color{keywordcolor}\bfseries,
+	ndkeywords={self},
+	ndkeywordstyle=\color{darkblue}\bfseries,
+	commentstyle=\color{gray}\itshape,
+	stringstyle=\color{stringcolor},
+	identifierstyle=\color{functioncolor},
+	morestring=[b]',
+	morestring=[b]",
+	morecomment=[s]{'''}{'''},
+	morecomment=[s]{"""}{"""},
+}
+
+% Style pour le langage CSS
+\lstdefinelanguage{CSS}{
+	morekeywords={color, background, margin, padding, border, width, height, font, display, position, top, bottom, left, right, content},
+	keywordstyle=\color{csscolor}\bfseries,
+	commentstyle=\color{gray}\itshape,
+	stringstyle=\color{stringcolor},
+	morestring=[b]",
+	morestring=[b]',
+	morecomment=[s]{/*}{*/},
+}
+
+% Style pour le langage XML
+\lstdefinelanguage{XML}
+{
+	morestring=[b]",
+	morestring=[s]{>}{<},
+	morecomment=[s]{<?}{?>},
+	stringstyle=\color{black},
+	identifierstyle=\color{darkblue},
+	keywordstyle=\color{cyan},
+	morekeywords={xmlns,version,type}% list your attributes here
+}
+
+% Style pour HTML avec JavaScript
+\lstdefinelanguage{html5}{
+	language=HTML,
+	morekeywords={html,head,title,meta,link,style,script,body,h1,h2,h3,h4,h5,h6,div,span,p,a,img,ul,ol,li,table,tr,td,th,form,input,button,textarea,select,option,label},
+	keywordstyle=\color{cyan}\bfseries,
+	identifierstyle=\color{darkblue},
+	stringstyle=\color{stringcolor},
+	morestring=[b]",
+	morestring=[b]',
+	commentstyle=\color{gray}\itshape,
+	morecomment=[s]{<!--}{-->},
+	alsoletter={:},
+	alsodigit={-},
+	morekeywords=[2]{var,function,let,const,if,else,for,while,do,break,continue,switch,case,default,return,try,catch,finally,new,this,throw,true,false,null,undefined,typeof,instanceof},
+	keywordstyle=[2]\color{purple}\bfseries,
+	morekeywords=[3]{console,document,window},
+	keywordstyle=[3]\color{ocherCode}\bfseries,
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+}
+
+
+\usepackage[pdfusetitle, pdfsubject={Mémoire TNAH — Titre}, pdfkeywords={mot1, mot2, mot3}]{hyperref}
+
+\author{Clara Grometto – M2 TNAH — ENC}
+\title{Le partage des outils de la recherche}
+
+% Changer le style de description de manière à ce que les acronymes dans la liste des acronymes apparaissent en petites capitales
+\usepackage{enumitem}
+\setlist[description]{labelwidth=2em, labelsep=.5em, font=\normalfont}
+
+% ACRONYMS
+\usepackage[automake, acronym, toc]{glossaries}
+\makeglossaries
+
+\setacronymstyle{short-long}
+
+\newacronym{alto}{\textsc{alto}}{\emph{Analysed Layout and Text Object}}
+\newacronym{api}{\textsc{api}}{\emph{Application Programming Interface}}
+\newacronym{ark}{\textsc{ark}}{\emph{Archival Resource Key}}
+\newacronym{bnf}{\textsc{b}n\textsc{f}}{\emph{Bibliothèque Nationale de France}}
+\newacronym{cite}{\textsc{cite}}{\emph{Collections, Indices, Texts, and Extensions}}
+\newacronym{cnn}{\textsc{cnn}}{\emph{Convolutional Neural Network}}
+\newacronym{cpu}{\textsc{cpu}}{\emph{Computing Processing Unit}}
+\newacronym{dishas}{\textsc{dishas}}{\emph{Digital Information System for the History of Astral Sciences}}
+\newacronym{dom}{\textsc{dom}}{\emph{Document Object Model}}
+\newacronym{eida}{\textsc{eida}}{\emph{Editing and analysing hIstorical astronomical Diagrams with Artificial intelligence}}
+\newacronym{fair}{\textsc{fair}}{\emph{Findable Accessible Interoperable Reusable}}
+\newacronym{gpu}{\textsc{gpu}}{\emph{Graphics Processing Unit}}
+\newacronym{hn}{\textsc{hn}}{\emph{Humanités Numériques}}
+\newacronym{html}{\textsc{html}}{\emph{HyperText Markup Language}}
+\newacronym{htr}{\textsc{htr}}{\emph{Handwritten Text Recognition}}
+\newacronym{http}{\textsc{http}}{\emph{Hypertext Transfer Protocol}}
+\newacronym{ia}{\textsc{ia}}{\emph{Intelligence Artificielle}}
+\newacronym{IIIF}{\textsc{iiif}}{\emph{International Image Interoperability Framework}}
+\newacronym{imagine}{\textsc{imagine}}{\emph{Laboratoire d’Informatique Gaspard Monge}}
+\newacronym{iscd}{\textsc{iscd}}{\emph{Institut des sciences du calcul et des données}}
+\newacronym{jpeg}{\textsc{jpeg}}{\emph{Joint Photographic Experts Group}}
+\newacronym{json}{\textsc{json}}{\emph{JavaScript Object Notation}}
+\newacronym{mpa}{\textsc{mpa}}{\emph{Multiple Page Application}}
+\newacronym{ocr}{\textsc{ocr}}{\emph{Optical Character Recognition}}
+\newacronym{odd}{\textsc{odd}}{\emph{One Document Does it all}}
+\newacronym{png}{\textsc{png}}{\emph{Portable Network Graphics}}
+\newacronym{ransac}{\textsc{ransac}}{\emph{RANdom SAmple Consensus}}
+\newacronym{rdf}{\textsc{rdf}}{\emph{Resource Description Framework}}
+\newacronym{sas}{\textsc{sas}}{\emph{Simple Annotation Server}}
+\newacronym{shs}{\textsc{shs}}{\emph{Sciences Humaines et Sociales}}
+\newacronym{spa}{\textsc{spa}}{\emph{Single Page Application}}
+\newacronym{si}{\textsc{si}}{\emph{Systèmes d'Information}}
+\newacronym{sru}{\textsc{sru}}{\emph{Search/Retrieve via URL}}
+\newacronym{svg}{\textsc{svg}}{\emph{Scalable Vector Graphics}}
+\newacronym{syrte}{\textsc{syrte}}{\emph{Systèmes de Référence Temps-Espace}}
+\newacronym{tal}{\textsc{tal}}{\emph{Traitement Automatique du Langage}}
+\newacronym{tei}{\textsc{tei}}{\emph{Text Encoding Initiative}}
+\newacronym{ui}{\textsc{ui}}{\emph{User Interface}}
+\newacronym{uri}{\textsc{uri}}{\emph{Uniform Resource Identifier}}
+\newacronym{url}{\textsc{url}}{\emph{Uniform Resource Locator}}
+\newacronym{urn}{\textsc{urn}}{\emph{Uniform Resource Name}}
+\newacronym{ux}{\textsc{ux}}{\emph{User eXperience}}
+\newacronym{vhs}{\textsc{vhs}}{\emph{Vision artificielle et analyse Historique de la circulation de l'illustration Scientifique}}
+\newacronym{w3c}{\textsc{w3c}}{\emph{World Wide Web Consortium}}
+\newacronym{xml}{\textsc{xml}}{\emph{eXtensible Markup Language}}
+\newacronym{yolo}{\textsc{yolo}}{\emph{You Only Look Once}}
+
+% COMMANDS
+\newcommand{\enc}{École nationale des chartes\xspace}
+\newcommand{\fair}{\gls{fair}\xspace}
+\newcommand{\api}{\gls{api}\xspace}
+\newcommand{\apis}{\gls{api}s\xspace}
+\newcommand{\bnf}{\gls{bnf}\xspace}
+\newcommand{\eida}{\gls{eida}\xspace}
+\newcommand{\aikon}{\textsc{aikon}\xspace}
+\newcommand{\syrte}{\gls{syrte}\xspace}
+\newcommand{\tei}{\gls{tei}\xspace}
+\newcommand{\iiif}{\gls{IIIF}\xspace}
+\newcommand{\wit}{\emph{Witness}\xspace}
+\newcommand{\wo}{\emph{Work}\xspace}
+\newcommand{\ser}{\emph{Serie}\xspace}
+\newcommand{\man}{\emph{Manifest}\xspace}
+\newcommand{\wits}{\emph{Witnesses}\xspace}
+\newcommand{\wos}{\emph{Works}\xspace}
+\newcommand{\sers}{\emph{Series}\xspace}
+\newcommand{\digit}{\emph{Digitization}\xspace}
+\newcommand{\digits}{\emph{Digitizations}\xspace}
+\newcommand{\mans}{\emph{Manifests}\xspace}
+\newcommand{\cpu}{\gls{cpu}\xspace}
+\newcommand{\cv}{\emph{computer vision}\xspace}
+\newcommand{\dishas}{\gls{dishas}\xspace}
+\newcommand{\dl}{\emph{deep learning}\xspace}
+\newcommand{\enherit}{\gls{enherit}\xspace}
+\newcommand{\tal}{\gls{tal}\xspace}
+\newcommand{\htr}{\gls{htr}\xspace}
+\newcommand{\gpu}{\gls{gpu}\xspace}
+\newcommand{\http}{\gls{http}\xspace}
+\newcommand{\ia}{\gls{ia}\xspace}
+\newcommand{\imagine}{\gls{imagine}\xspace}
+\newcommand{\iscd}{\gls{iscd}\xspace}
+\newcommand{\json}{\gls{json}\xspace}
+\newcommand{\html}{\gls{html}\xspace}
+\newcommand{\ml}{\emph{machine learning}\xspace}
+\newcommand{\svg}{\gls{svg}\xspace}
+\newcommand{\svgs}{\gls{svg}s\xspace}
+\newcommand{\uri}{\gls{uri}\xspace}
+\newcommand{\uris}{\gls{uri}s\xspace}
+\newcommand{\URL}{\gls{url}\xspace}
+\newcommand{\URLs}{\gls{url}s\xspace}
+\newcommand{\urn}{\gls{urn}\xspace}
+\newcommand{\urns}{\gls{urn}s\xspace}
+\newcommand{\vhs}{\gls{vhs}\xspace}
+\newcommand{\yolo}{\gls{yolo}\xspace}
+\newcommand{\rdf}{\gls{rdf}\xspace}
+\newcommand{\ocr}{\gls{ocr}\xspace}
+\newcommand{\ark}{\gls{ark}\xspace}
+\newcommand{\odd}{\gls{odd}\xspace}
+\newcommand{\xml}{\gls{xml}\xspace}
+\newcommand{\alto}{\gls{alto}\xspace}
+\newcommand{\cnn}{\gls{cnn}\xspace}
+\newcommand{\cnns}{\gls{cnn}s\xspace}
+\newcommand{\jpeg}{\gls{jpeg}\xspace}
+\newcommand{\png}{\gls{png}\xspace}
+\newcommand{\hn}{\gls{hn}\xspace}
+\newcommand{\ux}{\gls{ux}\xspace}
+\newcommand{\ui}{\gls{ui}\xspace}
+\newcommand{\wtc}{\gls{w3c}\xspace}
+\newcommand{\shs}{\gls{shs}\xspace}
+\newcommand{\dom}{\gls{dom}\xspace}
+\newcommand{\si}{\gls{si}\xspace}
+\newcommand{\yolov}{YOLOv5\xspace}
+\newcommand{\jc}{av. J.-C.\xspace}
+\newcommand{\ma}{Moyen Âge\xspace}
+\newcommand{\vecto}{vectorisation\xspace}
+\newcommand{\gaga}{\emph{Gallic(orpor)a}\xspace}
+\newcommand{\spa}{\gls{spa}\xspace}
+\newcommand{\sru}{\gls{sru}\xspace}
+\newcommand{\mpa}{\gls{mpa}\xspace}
+\newcommand{\ransac}{\gls{ransac}\xspace}
+\newcommand{\CITE}{\gls{cite}\xspace}
+\newcommand{\sas}{\gls{sas}\xspace}
+\newcommand{\graphical}{\emph{Graphical Element}\xspace}
+\newcommand{\graphicals}{\emph{Graphical Elements}\xspace}
+\newcommand{\tr}{\emph{Treatment}\xspace}
+\newcommand{\trs}{\emph{Treatments}\xspace}
+\newcommand{\ds}{\emph{Document Set}\xspace}
+\newcommand{\rs}{\emph{Region Set}\xspace}
+\newcommand{\dss}{\emph{Document Sets}\xspace}
+\newcommand{\rss}{\emph{Region Sets}\xspace}
+\def\cdt{\kern-0.5pt\ensuremath\cdot\kern-0.5pt}
+
+% Pour retirer le titre courant d'une page vide avant un chapitre
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+
+% Pour afficher le titre courant d'un chapitre non numéroté (intro, conclusion, etc.)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[RO,LE]{\thepage}      
+\fancyhead[LO]{\small \slshape \leftmark} 
+\fancyhead[RE]{\small \slshape \rightmark} 
+\renewcommand{\headrulewidth}{0pt}
+
+% Pour des sections non numérotées dans la table des matière
+\newcommand\chapterNo[1]{%
+ \chapter*{#1}
+  \markboth{}{} %???? 
+  \markright{\MakeUppercase{#1}}
+}
+
+% Création de l'environnement pour citer
+\newenvironment{kwote}
+  {
+    \begin{quote}
+    \begin{singlespace}
+    \small
+  }
+  {
+    \normalsize
+    \end{singlespace}
+    \end{quote}
+  }
+
+
+
+
+%insérer une image.
+          %\begin{figure}[H]
+          %\begin{center}
+          %\includegraphics[width=4cm, height=4cm]{img/fig2.png}
+          %\end{center}
+          %\caption{Le «~cercle magique~» de Huizinga.}
+          %\label{fig:ito1} \end{figure}
+
+\begin{document}
+
+\onehalfspacing 
+
+\frontmatter
+
+    \include{templates/page-titre}
+
+    \thispagestyle{empty}	
+    \clearemptydoublepage
+	
+    \include{templates/resume}
+	
+    \chapterNo{Remerciements}
+    \addcontentsline{toc}{chapter}{Remerciements}
+ 
+ Avant tout, je tiens à exprimer ma profonde gratitude à toutes les personnes ayant contribué à faire de ce stage une expérience profondément enrichissante sur le plan intellectuel comme personnel. 
+ 
+ Avant tout, je tiens à remercier ma directrice de mémoire Ségolène Albouy et ma tutrice Jade Norindr pour leur soutien, leurs conseils avisés, leur patience, leur disponibilité et leur générosité. Je me sens extrêmement chanceuse d'avoir pu profiter de leur expertise et découvrir leurs qualités humaines, elles forcent l'admiration. Un grand merci à Matthieu Husson ainsi qu'à tous les chercheur.ses d'\eida : Scott, Divna, Samuel, Chen\ldots Merci à Éleonora pour son délicieux cours de philologie. J'ai trouvé à l'Observatoire un environnement valorisant et encourageant, ce qui a été extrêmement précieux.
+ 
+Merci à tous les étudiants de la promotion 2024 du master TNAH pour leur soutien et leur amitié. L'émulation intellectuelle qui règne au sein de notre groupe a été un moteur essentiel et a rendu cette année de master particulièrement stimulante. 
+ 
+ Enfin, merci à mes parents, mes plus fidèles relecteurs, pour leur intérêt curieux et leur soutien indéfectible pendant la douloureuse rédaction de ce mémoire. Et merci à Jingwei pour son enthousiasme à toute épreuve, sa douceur et son oreille attentive. 
+    
+    \clearemptydoublepage
+    
+    \part*{Bibliographie}
+    \clearemptydoublepage
+    \printbibliography[keyword={hist astro},title={Histoire de l'astronomie}]
+    \clearemptydoublepage
+    \printbibliography[keyword={ia},title={IA~: généralités}]
+    \clearemptydoublepage
+    \printbibliography[keyword={eda},title={Documentation technique, méthodes, projets annexes}]
+    \clearemptydoublepage
+    \printbibliography[keyword={edit},title={Problématiques d'édition}]
+    \clearemptydoublepage
+    
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Introduction}
+    \chapterNo{Introduction}
+    \input{templates/intro.tex}
+    
+
+    \thispagestyle{empty}
+    \clearemptydoublepage
+
+\mainmatter
+
+    \part{Chaîne de traitement de la donnée visuelle~: enjeux technologiques et disciplinaires}
+
+\chapter*{Introduction partielle}
+
+\begin{kwote}
+``Indeed, not only have the majority of historians of cosmology dismissed
+the early Middle Ages due to the fact that there is no ``scientific
+progress'' to be observed, but they also tended to disregard visual
+representations, limiting their inquiries to the doctrinal aspects of
+textual sources.''\footcite[p.16]{obrist_visual_2012}
+\end{kwote}
+
+Les illustrations et leur évolution dans les sources d'ordre
+scientifique du \ma jusqu'aux cultures occidentales modernes n'ont
+été que peu étudiées. De manière plus générale, le rôle de l'image dans
+la construction et la diffusion du savoir scientifique soulève des
+questions complexes qui restent historiquement délicates à appréhender
+et pour lesquelles des outils d'analyse adaptés font défaut. Afin de
+combler cette lacune, l'objectif des projets \eida/\vhs est de développer
+des méthodes automatisées pour l'extraction et le traitement des
+illustrations dans les sources historiques, avec pour but ultime
+d'appuyer l'analyse experte des chercheur.ses en histoire des sciences.
+
+L'enrichissement et l'exploration de vastes corpus iconographiques n'est
+pas l'apanage de la seule histoire des sciences. Le développement de
+projets en Humanités Numériques dans des disciplines annexes constituent
+des antécédents ou des points de comparaison riches en enseignements. Si
+ce mémoire porte plus spécifiquement sur les développements réalisés
+dans le cadre de \eida, les différents projets s'inscrivent dans des
+dynamiques de continuité et de partage, créant un écosystème ouvert et
+fructueux, permettant d'appréhender au mieux les enjeux et les défis
+liés au traitement des résultats des grandes campagnes de numérisation
+des institutions et bibliothèques.
+
+Cette première partie explore la complexité des relations qui se forment
+à différents niveaux dans le contexte de la fabrication d'outils de
+traitement automatique de l'image. Ces outils doivent prendre en compte
+les dynamiques spécifiques aux acteurs et au cadre du projet \eida. Par
+ailleurs, ils s'insèrent dans un réseau plus vaste incluant des projets
+partenaires sur lesquels s'appuyer ou des briques fonctionnelles à
+intégrer. La problématique de ce chapitre réside donc dans la
+compréhension des liens se tissant à divers niveaux, impactant les
+développements, leur ouvrant des pistes comme les contraignant.
+
+Cette première partie présente ce réseau à deux niveaux~: premièrement
+les acteurs et le cadre du projet, et deuxièmement un réseau plus vaste,
+celui de la recherche en générale, la communauté se regroupant autour de
+grands principes d'ouverture garantissant une interopérabilité technique
+des données. Enfin, un état de l'art sur l'intelligence artificielle et d'enrichissement de données se concentrera autour du projet \gaga. Les réflexion méthodologiques menées dans le cadre de ce projet soulignent l'importance de partager des pratiques dans le domaine du \ml. 
+
+\begin{kwote}
+``Aller à la rencontre d'autres projets, créer des synergies avec d'autres
+équipes ou institutions peut être une réponse à cette difficulté de
+gestion de la masse. Un effort de standardisation sommé à une réflexion
+sur l'interopérabilité pourrait faire dialoguer les corpus et mutualiser
+les outils d'analyse, au-delà des clivages entre disciplines et sujets
+de recherches."\footcite{jacquot_decrire_2017}
+\end{kwote}
+
+\clearemptydoublepage
+
+        \hypertarget{chapitre-1-eida-contexte-institutionnel-et-scientifique}{%
+        \chapter{EIDA~: Contexte institutionnel et
+scientifique}\label{chapitre-1-eida-contexte-institutionnel-et-scientifique}}
+
+            \input{templates/chapitreI}
+            
+        \clearemptydoublepage
+        
+\hypertarget{chapitre-2-open-data-et-enjeux-interop}{%
+\chapter{Open-data et enjeux d'interopérabilité~: la standardisation technique à grande échelle}\label{chapitre-2-open-data-et-enjeux-interop}}
+
+                \input{templates/chapitreII}
+            
+        \clearemptydoublepage
+        
+\hypertarget{chapitre-3-EDA-image-ia}{%
+\chapter{État de l'art~: IA et traitement du volume}\label{chapitre-3-EDA-image-ia}}
+
+            \input{templates/chapitreIII}
+            
+        \clearemptydoublepage
+        
+\chapter*{Conclusion partielle}
+Comme le dit \citeauthor{jacquot_decrire_2017}\footcite{jacquot_decrire_2017}, face aux problématiques de traitement du volume, ``une réponse peut résider dans la généralisation des outils et
+des méthodes ainsi que dans le partage des récits de projets de
+recherche antérieurs, forme d'apprentissage et d'échange importante.''
+
+Un trait saillant dans la progression vers l'automatisation est la
+confrontation de deux besoins~: la collaboration et la spécialisation. D'un côté, la communauté scientifique voudrait mutualiser les outils et les méthodes, afin d'encourager le partage d'une expertise interdisciplinaire, des moyens financiers, et d'améliorer la maintenabilité, contribuant
+ainsi à la robustesse des développements. Un tel outil, à l'image de la plateforme e-Scriptorium, qui porte et guide les processus de transcription de texte, et dont la portabilité facilite l'intégration dans divers écosystèmes de recherche, contribue aussi à la cohérence des méthodes scientifiques au sein d'une équipe de recherche, ou entre plusieurs projets. De l'autre côté, il faut prendre
+en compte les spécificités locales des données, les besoins des
+utilisateur.rices et les enjeux propres aux projets de recherche qui portent
+la création des outils de traitement. Les solutions doivent être
+adaptées aux particularités des corpus et aux questions de recherche
+spécifiques, ce qui peut parfois entrer en conflit avec la nécessité de
+généralisation. 
+
+On aura voulu montrer dans cette première partie que l'ambition de créer un
+outil générique -- visant à l'enrichissement et la sémantification de la
+donnée -- se heurte à des dynamiques collectives et à la multiplicité des
+acteurs, autant qu'elle en profite. La philosophie de l'ouverture, à la
+fois des données et du code, est un atout (libre accès aux sources,
+appui sur des scripts et des projets de recherche existants, rencontres
+avec d'autres projets, création des synergies avec d'autres équipes ou
+institutions et mutualisation des moyens financiers et humains), et une
+double contrainte. La première est la nécessité d'assurer une
+interopérabilité technique pour ouvrir en retour les corpus et garantir
+la reproductibilité des résultats. La deuxième porte sur la prise en
+compte de l'hétérogénéité des données, ce qui demande de trouver le
+juste équilibre entre précision et flexibilité en terme de
+description.
+
+Nous sommes restés volontairement vagues sur la question des modèles de
+vision artificielle et les réseaux de neurones~: ils sont pourtant la
+clé de voûte des processus d'enrichissement et d'exploration des données. La construction et l'entraînement des réseaux de neurones s'inscrit aussi dans une balance
+délicate entre généralisation et spécialisation. Les modèles doivent
+être suffisamment généralistes pour reconnaître et interpréter une large
+variété de motifs provenant de contextes divers, ce qui leur permet
+d'être applicables à la diversité des scénarios rencontrés et de gérer
+l'hétérogénéité des grands corpus~: par exemple la grande variété
+orthographique, morphologique et de mise en page dans le cadre du projet
+\gaga. Mais l'efficacité des modèles de vision exige aussi leur
+spécialisation sur des jeux de données étroitement ciblés. Par
+conséquent, les chercheur.ses et ingénieur.es doivent constamment équilibrer
+ces deux exigences pour développer des modèles robustes, polyvalents,
+mais aussi suffisamment précis pour répondre aux besoins spécifiques des
+applications en recherche.
+
+    \part{Mise en œuvre et exploitation de la \emph{Computer Vision}}
+
+\chapter*{Introduction partielle}
+
+Les diagrammes astronomiques offrent une perspective unique sur la
+compréhension et la diffusion du savoir à travers les
+siècles dans l'histoire afro-eurasienne. Des centaines de manuscrits
+numérisés et des milliers de diagrammes sont disponibles. Nous avons
+constaté dans la première partie de ce travail les dimensions et
+l'hétérogénéité importantes caractérisant ce corpus de recherche, ainsi
+que l'impossibilité de réaliser des annotations à grande échelle pour
+chaque tâche spécifique. Pour assister les chercheur.ses dans le travail de
+fouille et d'analyse des documents historiques, diverses méthodes
+d'apprentissage profond (\dl) ont été développées et
+implémentées sur la plateforme.
+
+Il ne s'agit pas seulement d'implémenter des outils d'\ia efficaces,
+mais aussi d'en exploiter les résultats. Pour \eida, la finalité est de
+pouvoir produire des éditions scientifiquement satisfaisantes des
+diagrammes.
+
+Qu'est-ce que la vision artificielle~? Comment rendre les modèles
+efficaces sur les sources historiques~? Notre propos s'articulera autour
+de trois axes principaux~: le fonctionnement des modèles de vision, les
+enjeux tenant aux jeux de données pour leur entraînement, et la
+conceptualisation de l'outil d'édition qui repose sur les résultats des
+algorithmes.
+
+\clearemptydoublepage
+    
+        \hypertarget{chapitre-4-modele}{%
+        \chapter{Les modèles de \emph{Computer Vision}}\label{chapitre-4-modele}}
+
+            \input{templates/chapitreIV}
+               
+            
+        \clearemptydoublepage
+
+\hypertarget{chapitre-5-la-donnee}{%
+\chapter{La donnée~: générique ou caractéristique, réelle
+ou
+synthétique}\label{chapitre-5-la-donnee}}
+
+            \input{templates/chapitreV}
+            
+        \clearemptydoublepage
+        
+\hypertarget{chapitre-6-vers-edition}{%
+\chapter{Un outils d'édition des diagrammes pour la cohésion des pratiques}\label{chapitre-6-vers-edition}}
+
+            \input{templates/chapitreVI}
+            
+        \clearemptydoublepage
+
+        \chapter*{Conclusion partielle}
+
+L'application de techniques de \cv aux documents historiques
+se heurte à divers obstacles. Les modèles pré-entraînés sur des données
+génériques peinent à capturer les spécificités visuelles et les
+complexités propres aux données réelles. En outre, l'entraînement de modèles
+spécifiques est contraint par la rareté de jeux de données historiques
+annotées. Les annotations, aussi, doivent être assez précises pour
+satisfaire les chercheur.ses et assez extensives pour permettre au modèle de
+généraliser.
+
+Toutefois l'émergence de nouvelles architectures de réseaux de neurones
+et de nouvelles méthodes d'apprentissage profond permet d'améliorer les
+performances des modèles sur des documents spécifiques. Par ailleurs, la
+génération de données synthétiques constitue une approche prometteuse
+pour pallier le manque de données réelles annotées. En simulant des
+documents historiques, en imitant les dégradations et le trait manuel qui
+les caractérise, il est possible d'enrichir les jeux de données
+d'entraînement. Enfin, la collaboration entre les ingénieur.es de la
+donnée et les spécialistes permet de définir des protocoles d'annotation
+adaptés. En trouvant un compromis entre la finesse d'analyse requise par
+les chercheur.ses et les contraintes de représentativité des modèles, il
+est possible de créer des jeux de données réelles suffisamment
+qualitatifs. Pour affiner les résultats, il est nécessaire d'intégrer un
+processus de correction des sorties des modèles dans la boucle
+d'apprentissage, afin d'améliorer progressivement leur précision en
+récupérant des jeux de données annotés à partir des prédictions. Ces
+processus de vérification sont aussi essentiels pour garantir la
+pertinence des résultats et compenser la binarité de l'œil de la
+machine.
+
+Malgré cette étape de correction, l'automatisation des processus grâce
+aux modèles de vision constitue un gain de temps pour les chercheur.ses et
+permet de traiter des corpus dont la taille aurait rendu le traitement
+manuel inenvisageable~: ils permettent d'extraire les illustrations des
+documents, puis de chercher, pour chaque entité, leurs homologues les
+plus similaires, et enfin de générer des représentations numériques
+sémantiquement riches et manipulables à partir des images (\svgs). Ces
+dernières pourrait ainsi servir de base à la création d'un outil qui
+systématise les modalités d'édition des diagrammes, proposant une
+méthodologie rigoureuse.
+
+En effet, un outil définit un cadre et des pratiques, il porte une
+vision des sources et une méthode. C'est ce sur quoi portera la partie
+III. On voudra montrer quelles réflexions, défis et solutions tiennent
+au développement d'une plateforme qui, tout en fournissant un cadre
+méthodologique solide, offre une grande souplesse d'utilisation,
+permettant aux chercheur.ses de personnaliser leurs \textit{workflows} en fonction de
+leurs besoins spécifiques. En somme, comment concevoir un véritable
+Système d'Information extensif capable de soutenir l'ensemble du
+processus de traitement des illustrations présentes dans les documents
+historiques, de l'acquisition des données à leur exploitation
+scientifique.
+
+    \part{Une plateforme pour une méthode reproductible et transposable}
+
+\chapter*{Introduction partielle}
+
+La modularité des projet \eida/\vhs repose en grande partie sur la
+construction de la plateforme web \aikon~: outil complet pour la
+recherche sur des documents historiques, permettant leur import,
+leur stockage, leur analyse (par différentes méthodes) puis leur visualisation. Le but
+est que tout projet tenant des \hn puisse utiliser la plateforme. Ainsi
+l'application vise à être réutilisable et le code sera mis à disposition
+en accès libre sur GitHub.
+
+Cette plateforme, pensée pour être agnostique quant au domaine
+d'application spécifiques, doit être capable d'accueillir des corpus de
+données divers pour tout chercheur.se ou projet en étude visuelle
+souhaitant adopter la méthodologie qu'elle porte. Elle doit également
+prendre en compte la diversité des ressources humaines et matérielles
+disponibles. Elle doit autoriser l'intégration modulable d'outils et algorithmes, notamment
+ceux issus du domaine de la \cv, pour traiter des motifs
+visuels et des objets présents dans les sources. En adoptant cette
+approche, elle se veut environnement de recherche collaboratif où les
+chercheur.ses peuvent partager leurs données, méthodes et résultats.
+
+Le défi consiste donc à créer une application aux fonctionnalités
+suﬀisamment spécifiques pour répondre aux besoins des deux projets qui
+portent son développement (\vhs et \eida), tout en étant suﬀisamment
+généralistes pour que la plateforme puisse être réemployée à l'avenir
+par d'autres projets. L'objectif de l'application \aikon est alors de porter une
+méthode de traitement et d'assurer sa possible transposition dans des
+environnements techniques et disciplinaires différents. La stratégie de
+développement consistera alors en l'assemblage de briques techniques,
+indépendantes le plus possible, et réutilisables seules ou ensemble.
+
+Le développement d'architectures flexibles et évolutives comporte des
+défis liés à la conception de systèmes adaptables à des
+besoins changeants et à des environnements hétérogènes. Il implique la
+modularisation des modèles de données, l'interopérabilité des formats et
+protocoles, l'architecture du code, les contraintes liées aux
+ressources matérielles diverses (accès au \textit{hard-ware} et à la puissance de
+calcul) et les enjeux liés à l'expérience utilisateur.rice (\ux/\ui).
+Dans cette partie nous verrons comment la conception de l'application
+\aikon entend répondre à ses enjeux.
+
+Quelles sont les complexités liées à la conception d'un système
+d'information capable de s'adapter à des domaines d'application variés
+et d'évoluer dans le temps~? Nous explorerons deux piliers de cette
+problématique~: l'optimisation des processus internes et la conception
+d'interfaces utilisateur.rice intuitives, capable de guider l'utilisateur.rice
+dans ces processus.
+
+\clearemptydoublepage
+
+\hypertarget{preambule}{%
+\chapterNo{Préambule~: importance d'une plateforme modulaire}\label{preambule}}
+        
+      L'ouverture des codes, outils et données dans le contexte de la
+recherche en \hn, et spécifiquement impliquant l'\ia, est
+importante pour plusieurs raisons.
+
+\emph{Traçabilité et Reproductibilité}
+
+L'ouverture du code source de la plateforme garantit la traçabilité des
+pipelines d'analyse, favorisant ainsi la transparence des méthodes de
+recherche. La plateforme offre un cadre de travail reproductible et
+permet de modéliser et standardiser les processus d'analyse, assurant
+ainsi une cohérence méthodologique au sein des équipes de recherche et
+entre différents projets. Cette approche contribue à renforcer la
+confiance dans les résultats scientifiques et à faciliter leur
+validation par la communauté. Elle favorise aussi le partage des méthodes au sein de la communauté des chercheur.ses. 
+
+\emph{Modularité, Solidité et Pérennité}
+
+L'objectif est de développer un outil qui pourra être réutilisé,
+maintenu, et pourra évoluer dans le temps, contrairement à l'usage
+qui voit souvent des outils de recherche devenir obsolètes et difficiles
+à maintenir une fois les projets de recherche terminés.
+
+Cette problématique est particulièrement prégnante dans les \hn, où les outils développés sont fréquemment abandonnés à la
+fin des financements, faute de stratégie de pérennisation. Par exemple,
+la difficulté de maintenir la plateforme \dishas est exprimée par
+l'équipe DH, ne serait-ce qu'en raison du coût humain lié au temps passé
+à son maintien. Qui plus est, l'accord des financements repose bien
+souvent sur la justification par des livrables techniques innovants. Et
+donc les outils développés précédemment ne sont pas maintenus et
+abandonnés.
+
+Un outil qui fonctionne aujourd'hui peut rapidement devenir obsolète ou
+inadapté si sa conception n'intègre pas une capacité d'évolution. En
+construisant un \si modulaire, il devient possible de prolonger la vie de
+l'outil. Dans une optique de sobriété et dans la philosophie de l'open-source, cette démarche a aussi pour objectif d'éviter à de multiples
+projets le développement d'outils aux fonctionnalités similaires.
+
+\emph{Démocratisation des outils de \dl}
+
+L'ouverture des données historiques ou patrimoniales, mais aussi des
+technologies qui permettent de les manipuler (outils low-tech,
+publication du code, mais aussi et notamment outils d'\ia) produisent de
+riche dynamiques de collaboration. Si l'utilisation de la vision
+artificielle tend à se généraliser dans le traitement de ces données,
+les projets de recherche ne disposent pas toujours des compétences en
+interne pour intégrer le \ml, ni les ressources
+temporelles, financières et humaines nécessaires. Ils peuvent alors profiter du
+soutien d'une communauté et de l'existence d'outils génériques
+spécialisables, réduisant ainsi les coûts de développement. En effet, les
+algorithmes généralistes ne sont généralement pas adaptés aux données
+historiques et sont donc difficiles à utiliser off-the-shelf sans
+ajustement. \aikon inclue donc des moyens d'export dans des formats
+divers, pour créer des vérités de terrain et envisager l'entraînement des modèles, suivant l'exemple de e-Scriptorium.
+
+Il y a donc un enjeu à penser des outils standards, en réfléchissant
+techniquement à des solutions maintenables sur le long termes grâce à
+des formats interopérables et des infrastructures flexibles, pour
+permettre non seulement la reproductibilité des résultats mais aussi une
+réutilisation des données produites dans des contextes divers.        
+            
+        \clearemptydoublepage
+        
+        \hypertarget{chapitre-7-processus-et-fonctionnalites}{%
+\chapter{Processus et
+Fonctionnalités}\label{chapitre-7-processus-et-fonctionnalites}}
+
+  \input{templates/chapitreVII}
+            
+        \clearemptydoublepage
+        
+\hypertarget{chapitre-8-interfaces}{%
+\chapter{Interfaces}\label{chapitre-8-interfaces}}
+
+
+\input{templates/chapitreVIII}
+
+        \clearemptydoublepage
+
+        \chapter*{Conclusion partielle}
+
+Le travail des chercheur.ses sur de grandes quantités de données
+nécessitent le développement d'outils adaptés. La performance des
+modèles d'\ia ne suffit pas~: il faut les rendre opérationnels au sein
+des environnements de recherche. Là se situe l'enjeu de la plateforme
+\aikon, dont l'objectif est de rendre compatibles les outils techniques
+et les pratiques des ss. Elle a pour ambition de façonner un
+véritable \si incluant les outils de \cv pour
+systématiser les traitements, des fonctionnalités de gestion
+documentaire, le tout en préservant le rôle central de l'interprétation
+humaine.
+
+L'objectif est aussi de concevoir une plateforme adaptable à une
+multitude de projets de recherche en études visuelles. En adoptant une
+architecture modulaire, divers projets peuvent l'exploiter comme une
+`coquille', en personnalisant les protocoles selon leurs besoins
+spécifiques. Cette flexibilité contribue à la pérennité et l'évolution
+de l'outil.
+
+À l'heure actuelle, l'application est à déployer sur des serveurs
+personnels. Cependant, l'objectif à long terme est de développer une
+plateforme en ligne, à l'exemple d'e-Scriptorium, dédiée à l'analyse
+automatique de documents multimodaux. En offrant des fonctionnalités de
+correction des traitement et d'exploration de résultats, elle permettra
+la création de corpus enrichis. Et en rationalisant les méthodes de
+travail des historiens, elle ouvrira de nouvelles perspectives en
+matière de collaboration et de partage des outils comme des données. Se
+conformant aux principes \fair et aux normes internationales d'interopérabilité, elle pourra faciliter la migration des données vers
+d'autre systèmes (via des \api), et permettre ainsi les
+comparaisons avec d'autres corpus. Elle favoriserait ainsi son intégration
+dans des écosystèmes de recherche plus larges.
+
+\clearemptydoublepage
+    
+    \chapterNo{Conclusion}
+    \addcontentsline{toc}{chapter}{Conclusion}
+    \input{templates/conclusion.tex}
+    
+
+\appendix
+    \part*{Annexes}	
+    \addcontentsline{toc}{part}{Annexes}
+    
+    \chapter[Évolution du modèle de données]{\label{data_models}Évolution du modèle de données}
+	    \input{templates/annexes/datamodel}
+	    \clearemptydoublepage
+	
+    \chapter[Module vectorisation~: description des développements]{\label{module_vecto}Module vectorisation~: description des développements}
+	    \input{templates/annexes/vectorization_workflow.tex}
+	    \clearemptydoublepage
+
+	\chapter[Interfaces~: développement des vues personnalisées]{\label{dvt_interfaces}Interfaces~: développement des vues personnalisées}
+	\input{templates/annexes/django_interface.tex}
+	\clearemptydoublepage
+	
+	\chapter[Interfaces~: documentation]{\label{doc_interfaces}Nouvelles interfaces~: documentation}
+	\includepdf[scale=1,pages=1-]{templates/annexes/doc_interfaces.pdf}
+	\clearemptydoublepage
+
+\clearemptydoublepage
+
+\backmatter
+    \printacronyms[title=Liste des acronymes,toctitle=Acronymes, type=\acronymtype]
+    \printglossary 
+  \listoffigures
+  \addtocontents{lof}{\protect\footnotetext{Les schémas suivis d'un astérisque sont prélevés ou inspirés de la documentation technique interne créée par les développeur.ses du projet \eida et de l'\iscd.}}
+    \tableofcontents
+	
+\end{document}

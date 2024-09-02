@@ -1,0 +1,77 @@
+Dans des termes très simples, pour faire exécuter une tâche à la
+machine, deux solutions existent. La première consiste à écrire un
+programme, dont l'expert métier a explicité les règles. Le programme est
+entièrement rédigé par un.e développeur.se. Il effectue une tâche précise,
+chaque conjecture spécifique doit être prévue et son traitement
+clairement formulé. Si le code produit des erreurs, il doit être modifié
+par le.a développeur.se. La deuxième approche consiste à donner au programme
+la capacité de se modifier lui-même, sans que cette modification soit
+explicitement rédigée~; le programme programme. L'expert métier doit
+annoter des exemples et un seul algorithme (d'apprentissage) suffit pour
+traiter de multiples cas du réel. En cas d'erreur, il faut agir non plus
+sur le programme mais sur les exemples d'apprentissage. L'objectif est
+d'apprendre à généraliser pour prédire sur des exemples non vus pendant
+l'apprentissage\footcite[p.7]{chollet_apprentissage_2020}.
+
+\begin{kwote}         
+``On peut ainsi opposer un programme \emph{classique}, qui utilise une
+procédure et les données qu'il reçoit en entrée pour produire en sortie
+des réponses, à un programme \emph{d'apprentissage automatique}, qui
+utilise les données et les réponses afin de produire la procédure qui
+permet d'obtenir les secondes à partir des premières.''\footcite[p.1-2]{azencott_introduction_2022}
+\end{kwote} 
+
+L'émergence de l'apprentissage machine a alors ouvert de nouvelles
+perspectives en permettant de modéliser des interactions complexes entre
+les données. Les modèles de \dl sont également plus
+résilients face aux variations et au bruit présents dans les
+données\footcite{juneja_deep_2023}. Ainsi,
+l'application de l'apprentissage profond se révèle particulièrement
+pertinente dans le cadre d'\eida, car elle permet de relever le défi
+de la sémantification des images, y compris lorsqu'il s'agit de sources
+historiques complexes.
+
+        \hypertarget{les-reseaux-de-neurone}{%
+        \section{Les réseaux de neurones, ou la généralisation prise au sens
+        mathématique}\label{les-reseaux-de-neurone}}
+         \input{templates/chapitre4/I}
+
+
+        \hypertarget{des-traitements-et-des-architectures-diverses}{%
+        \section{Des traitements et des architectures
+        diverses}\label{des-traitements-et-des-architectures-diverses}}
+         \input{templates/chapitre4/II}
+
+\vspace{2cm}
+
+En résumé, la diversité des architectures de réseaux de neurones permet
+d'adapter les modèles aux spécificités des données et des tâches à
+traiter, tout en optimisant les performances et l'efficacité
+computationnelle. Cette flexibilité est essentielle pour répondre aux
+multiples défis posés par le traitement automatique des documents
+historiques. Deux approches se distinguent~: l'utilisation de modèles
+\textit{off-the-shelf} ou d'architectures spécifiques. Traditionnellement, les
+ingénieur.es concevaient des architectures de réseau de neurones sur
+mesure, adaptées spécifiquement aux problèmes à résoudre. Cette
+approche, bien que permettant une optimisation fine des performances,
+est souvent coûteuse en temps et en ressources. Ces dernières années,
+l'émergence de modèles pré-entraînés sur des jeux de données massifs a
+ouvert de nouvelles perspectives. Ces modèles off-the-shelf (ou
+pre-trained models), déjà qualitatifs, demandent cependant à être spécialisés sur des corpus. Le \textit{fine-tuning}
+consiste alors à adapter ces modèles à une tâche spécifique en les
+entraînant sur un jeu de données plus petit et plus pertinent.
+
+L'approche de corpus de dimensions importantes, ne permettant pas une analyse
+manuelle, trop chronophage, est permise par la vision artificielle.
+L'utilisation des modèles de vision présente cependant des limites~:
+notamment, la complexité de leur fonctionnement reste assez opaque aux
+non spécialistes, ce qui peut être un inconvénient là où la transparence
+et l'explicabilité sont importantes, typiquement pour des projets
+transversaux caractéristiques des humanités numériques. D'autant que la
+collaboration entre les chercheur.ses spécialistes des sources et les
+ingénieur.es \textit{data-scientists} est essentielle~: les deux pôles doivent
+collaborer pour entraîner les modèles et les rendre performants sur les
+données spécifiques. C'est pourquoi l'optimisation des modèles de vision
+ne s'obtient pas sans un effort du côté des équipes disciplinaires, qui
+vont réunir et annoter des jeux de données importants pour entraîner
+efficacement les modèles.

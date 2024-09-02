@@ -1,0 +1,80 @@
+\gaga mène une réflexion
+méthodologique sur la portabilité des modèles, leur diffusion et le
+partage de grands ensembles de données annotées selon des normes
+communes. Les modèles d'\ia, notamment ceux dédiés à la
+reconnaissance du texte manuscrit (\htr) et au traitement automatique des
+langues (\tal), requièrent des données d'entraînement spécifiques. 
+
+Mais si chaque projet de recherche annotait ses corpus selon ses propres
+exigences, ils engendreraient fatalement des silos de données non
+réutilisables. Pour garantir la réutilisation des données, il est
+impératif d'établir des normes et des standards.
+
+Le projet porte alors le développement d'une syntaxe
+d'annotation générique pour harmoniser la segmentation des pages des
+vérités de terrain, afin de constituer des corpus d'entraînement réutilisables. \gaga propose une
+approche très inclusive en identifiant des éléments textuels communs à
+une large variété de documents, manuscrits comme imprimés. Cette
+démarche donne lieu à la définition d'un vocabulaire contrôlé permettant
+ainsi de construire des corpus annotés compatibles avec différents contextes\footcite[``Using a common vocabulary to annotate zones called SegmOnto (that is still evolving), we have developed a generic workflow to analyse the layout, OCRise the text, and convert the ALTO output into minimally encoded TEI files (\dots).''][p.2]{janes_towards_2021}~:
+SegmOnto\footnote{https://github.com/SegmOnto}
+
+Les étapes de lemmatisation et d'étiquetage morphologique (POS-tagging) effectuées par les modèles de \tal sur le texte extrait des pages numérisées visent à normaliser le
+langage en réduisant les mots à leur forme canonique (lemme) et en
+identifiant leur catégorie grammaticale. Cette normalisation est
+essentielle pour faciliter des analyses ultérieures telles que la
+collation et la stylométrie. Elle permet une analyse comparative des textes
+malgré la grande variabilité inhérentes aux
+langues historiques, pour lesquelles l'absence de normes orthographiques entraîne une
+grande diversité de graphies. La préparation des données, là aussi, a donné lieu à une
+réflexion méthodologique sur les défis liés à la standardisation des
+annotations linguistiques dans les corpus diachroniques.
+
+Selon \citeauthor{gabay_standardizing_2020}~:
+\begin{kwote}                     
+	``With the development of big corpora of various periods, it becomes
+	crucial to standardise linguistic annotation (e.g.~lemmas, POS tags,
+	morphological annotation) to increase the interoperability of the data
+	produced, despite diachronic variations.''\footcite[p.2]{gabay_standardizing_2020}
+\end{kwote}  
+
+\citeauthor{gabay_standardizing_2020}\footcite{gabay_standardizing_2020} relèvent la
+difficulté de mettre en œuvre un cadre technique qui prenne en compte
+les pratiques d'annotation déjà établies et propres à des états de la langue. Pourtant garantir une
+interopérabilité minimale avec les corpus existants est essentielle pour
+maximiser la valeur ajoutée des nouvelles données.
+
+\begin{kwote}                     
+	``Such a task cannot be done without taking into account longstanding
+	annotation practices, in order to allow (minimal) interoperability with
+	already existing datasets. Such a statement is sadly easier said than
+	done, because EMF is an intermediary stage between medieval (12th-15th
+	c.) and late modern and contemporary (from c.~1750) French, two states
+	of language that tend to have different needs regarding annotation: EMF
+	is then caught in between two (potentially incompatible) practices, one
+	for each extreme of the continuum.''\footcite[p.2]{gabay_standardizing_2020}
+\end{kwote}     
+
+Il est particulièrement complexe de trouver un équilibre entre une
+description linguistique trop fine, qui pourrait limiter
+la réutilisabilité des corpus, et une description trop générale, qui pourrait
+manquer de précision. De plus, les besoins en annotation varient considérablement
+entre le français médiéval et le français moderne, et les systèmes
+d'annotation de ses deux états de la langue sont difficilement
+réconciliables~: or une large partie des sources de \gaga se
+situent dans l'entre-deux. Trouver un compromis qui satisfait les
+exigences spécifiques de chaque période est complexe.
+
+L'harmonisation des annotations vise à favoriser la diffusion des corpus
+de données sur HTR-United, une plateforme collaborative dédiée au
+catalogage de vérités de terrain pour l'\htr et l'\ocr, principalement en
+français\footcite{chague_htr-united_2021}. Cette base de
+données, hébergée sur GitHub, centralise des images et leurs
+transcriptions produites par différents projets de recherche, offrant
+ainsi une diversité de jeux de données diachroniques et géographiques
+pour l'entraînement de modèles \htr.
+
+\gaga vise aussi à la diffusion des modèles en eux-même, qui peuvent alors être réutilisés et spécialisés. Par ailleurs, le projet
+s'appuie sur des outils existants, par exemple Deucalion, une boîte à
+outils de traitement automatique des langues (\tal) conçue pour être
+interopérable avec d'autres systèmes\footnote{https://github.com/chartes/deucalion-model-af}.

@@ -1,0 +1,74 @@
+
+Le \ml repose sur deux piliers~: l'algorithme d'une part,
+qui est la procédure que l'on fait tourner sur les données pour produire
+un modèle, et d'autre part les données, qui sont les exemples à partir
+desquels l'algorithme ajuste les poids du modèle (il \emph{apprend}).
+L'entraînement consiste à faire tourner un algorithme d'apprentissage
+sur un jeu de données (très) important et accompagné de ses étiquettes
+ou annotations (correspondant aux résultats espérés du modèle). La
+disponibilité de corpus annotés assez divers et importants est un défi à
+relever, particulièrement dans le domaine de l'histoire des sciences.
+L'un des principaux challenges de la reconnaissance sémantique des
+éléments visuels dans les documents historiques est leur grande
+variabilité, ainsi que, et surtout, la rareté générale de jeux de
+données historiques cohérents axés sur leur détection. De plus, dans la majorité des cas où des éléments graphiques
+ont été rassemblés, ils n'ont pas été annotés selon des classes
+sémantiques issus d'ontologies normalisées. En outre, les
+\emph{datasets} disponibles sont souvent trop spécifiques, concernant
+une période ou un support précis, tels que des manuscrits écrits à la
+main, des livres imprimés ou des journaux. On pourra par exemple citer
+le \emph{Newspaper Navigator Dataset}\footcite{lee_newspaper_2020} qui contient des
+éléments visuels issus de 16 millions de journaux des Etats-Unis publiés
+en 1789 et 1963 ou encore le \emph{HORAE dataset}\footcite{noauthor_horae_nodate} qui se
+concentre sur les livres de prière de la fin du \ma. En histoire
+des sciences astronomiques ou mathématiques, aucun projet n'a encore
+entrepris de collecte d'envergure, hormis peut-être le projet
+Sphaera\footcite{noauthor_sphere_nodate} (travail sur les premiers manuscrits) ou le projet \vhs, auquel \eida se greffe.
+
+Cette rareté s'explique cependant~: l'annotation des jeux de données
+représente une tâche chronophage qui nécessite des moyens humains
+importants et l'implication d'experts capables de reconnaître et de
+classer avec précision les éléments pertinents dans les images.
+
+Par conséquent, il est nécessaire de trouver des solutions pour remédier à
+la rareté des jeux de données d'images de documents historiques
+annotés, telles que l'utilisation de techniques de génération de
+données synthétiques ou l'utilisation de modèle généraux tirant partie
+du \textit{crowdsourcing} pour leur entraînement. On verra que ces stratégies sont néanmoins
+insuffisantes, et que la constitution de jeux de données réelles et
+contextuelles est nécessaire pour ne pas sacrifier la pertinence des
+modèles à l'efficience de leur fabrication.
+
+        \hypertarget{partir-modele-generaliste}{%
+        \section{Partir d'un modèle
+        généraliste}\label{partir-modele-generaliste}}
+        
+        \input{templates/chapitre5/I}
+        
+        \hypertarget{quelles-donnees}{%
+        \section{Quelles données pour le spécialiser~?}\label{quelles-donnuees}}
+        
+        \input{templates/chapitre5/II}
+
+\vspace{2cm}
+
+L'optimisation d'un modèle revient à trouver un équilibre entre la
+disponibilité des données et leur réalisme. Trop peu de données, c'est
+un modèle qui sur-apprend -- qui colle trop aux données -- ou qui
+sous-apprend -- qui est incapable de modéliser la relation entre
+l'entrée et la prédiction attendue. On ne peut donc pas se contenter des
+données réelles dont le volume fait défaut dans le cas des documents
+historiques. Néanmoins se limiter aux données trop générales ou
+synthétiques ne suffit pas non plus, au risque de construire un modèle
+trop généraliste. Le modèle doit se spécialiser sur un corpus et
+l'utilisation de données réelles est essentielle pour en capturer la
+complexité et la diversité.
+
+L'annotation des jeux de données se trouve au cœur de cette tension~:
+comment concilier la nécessité de standardiser les données pour assurer
+la cohérence et la réutilisabilité, tout en préservant la richesse et la
+complexité des données telles qu'elles sont perçues par les experts~? En
+effet, si la standardisation est indispensable pour former des modèles
+performant et combler le manque de données réelles, elle peut parfois
+aplatir les nuances et les subtilités que seuls les chercheur.ses sont en
+mesure de saisir. Encore une fois, un équiblibre doit être trouvé.

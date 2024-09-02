@@ -1,0 +1,194 @@
+Le module de base est un package pour la gestion documentaire, duquel
+l'application ne peut se détacher. Celui-ci inclut tout d'abord des
+formulaires pour l'intégration des documents dans la base de données. Le
+modèle de données permet de décrire différentes entités qui, bien que
+liées dans leurs métadonnées, peuvent être intégrées indépendamment. Le
+module de base permet également la création de \mans \iiif pour
+chaque numérisation, permettant ensuite la visualisation des documents
+grâce aux outils open-source dédiés. De ce fait, l'indexation de zones
+d'image peut être réalisée manuellement via l'interface Mirador intégrée
+à \sas. Ce noyau fonctionnel inclut en outre la sélection de lots de
+documents (le ``panier''), sur lesquels pourront être effectués des
+traitements groupés paramétrables.
+
+Les briques fondamentales offrent donc les fonctionnalités essentielles
+de gestion documentaire (intégration, modèle de données, \iiif). Les
+traitements, quant à eux, sont gérés par des modules séparés, et c'est
+sur cette structure que repose la modularité et l'évolutivité de
+l'application.
+
+Ci-après nous donnons une description détaillée de certaines de ces
+fonctionnalités de base.
+
+\hypertarget{description-des-donnees}{%
+\subsection{Description des
+données}\label{description-des-donnees}}
+
+Le module de base contient un modèle de données suffisamment extensif
+pour décrire efficacement une diversité de données, allant de documents
+textuels historiques à des tableaux en histoire de l'art. La
+tripartition entre témoin (\wit), série (qui contient un ensemble de
+témoins), et contenu permet un alignement avec des corpus très
+diversifiés et des données potentiellement hétéroclites, telles que des
+manuscrits, des documents épistolaires, des inventaires de galeries
+d'art, et même pourquoi pas des cartes\ldots{}
+
+Pour ouvrir à cette large diversité de données, la liste des types de
+pagination témoin doit être étendue \emph{a minima} d'un nouveau type
+``other'', émancipant l'enregistrement des mentions de pagination. Les
+développements futurs prévoient aussi la création d'un système pour
+ajouter facilement un nouveau type\footnote{Le type de témoin est une
+  métadonnée rentrée par l'utilisateur.rice lors de l'enregistrement du
+  \wit dans la base de donnée. Il choisit le type dans une liste,
+  originellement manuscrit, imprimé ou gravure sur bois.} de \wit
+(tel que peinture, catalogue, etc.).
+
+Au fil des développements, des débats ont émergé autour de l'ajout dans
+le modèle de données d'un niveau de granularité supplémentaire pour
+décrire des images ou zones d'images unitaires
+(\graphicals), créant ainsi une entité détachée du fait
+qu'elle provienne d'une extraction dans un document. Cette solution
+aurait permis une description plus détaillée et plus fine des images,
+importante pour des projets axés sur des images uniques, et aurait
+favorisé un élargissement du spectre des type de sources pris en charge.
+L'utilisateur.rice aurait pu soit importer une image unique (et de manière
+optionnelle, la lier à un \wit) via un formulaire, soit sélectionner
+une région d'image d'intérêt au sein des extractions (annotations \sas),
+laquelle serait enregistrée comme \graphical, puis l'enrichir de
+métadonnées. Dans les deux cas l'enregistrement d'un \graphical
+aurait donné lieu à la création d'une \digit au format \jpeg.
+
+Sans l'unité de description \graphical, les régions d'images
+sont créées uniquement via les annotations \sas.
+
+L'intégration de cette entité au sein du modèle aurait offert plusieurs
+avantages en termes de cohérence et de flexibilité. En s'alignant sur
+les structures existantes (\wits et \sers), elle aurait permis une
+manipulation plus intuitive des images, facilitant ainsi les opérations
+de recherche et la création de \emph{Sets} personnalisés. De plus, elle
+aurait rationalisé la gestion des annotations \sas, permettant de
+sélectionner les plus pertinentes dans la multitude existante.
+
+Cependant, cette approche présente des limites, et on peut trouver des
+alternatives. Tout d'abord, la coexistence de \graphicals avec les
+annotations \sas, générées par des processus distincts, aurait pu créer
+une certaine confusion quant à leur nature et à leur méthode de
+création. De plus, la multiplication potentielle de milliers
+d'enregistrements aurait pu impacter les performances de la base de
+données et complexifier les requêtes. Enfin, le lien sémantique ambigu
+et sujet à interprétation subjective entre \graphical et \wit
+aurait compliqué les possibilités de corrélation.
+
+Compte tenu de ces limites, il a semblé préférable de maintenir les
+annotations \sas pour identifier les instances de base du modèle, sans
+créer de nouvelle unité de description. La solution actuelle reste donc
+basée sur la création manuelle ou automatique de zones dans les images
+via \iiif et \sas, évitant les problèmes de redondance et de confusion.
+Bien que l'entité \graphical n'ait pas été implémentée, les
+fonctionnalités d'annotation et de sélection d'images sont assurées par
+d'autres mécanismes. L'outil Mirador permet d'associer des tags aux
+zones d'image, offrant ainsi une première couche d'enrichissement
+sémantique. La sélection dans un \emph{set} personnalisé sera possible en
+gardant en mémoire une référence contenant des coordonnées du
+\emph{crop}. De plus, l'importation d'images individuelles est
+réalisable en les considérant comme des \emph{Witness partiels}, ce qui
+permet de les intégrer dans le \textit{workflow} existant. Toutefois
+l'enrichissement sémantique à un niveau de granularité fin restera
+limité~; et la dépendance à l'outil \sas constitue une potentielle dette
+technique, susceptible de restreindre les évolutions futures du système.
+
+Afin de mieux répondre aux exigences de modularité, l'évolution du
+modèle de données s'oriente non pas vers une description individuelle
+des documents, mais vers la gestion des traitements. Cette évolution
+implique la création d'une entité \tr
+liée à des ensembles de données (\ds et
+\rs) potentiellement hétérogènes.
+
+\hypertarget{principe-du-traitement}{%
+\subsection{Principe du Traitement}\label{principe-du-traitement}}
+
+Le but fondamental de la plateforme est de pouvoir effectuer plusieurs
+actions sur les objets de la base. Afin d'assurer une meilleure
+traçabilité et plus de flexibilité, la plateforme abandonne les
+lancements automatiques des processus\footnote{C'était initialement le
+  cas de l'extraction des entités, dont le lancement était lié à une
+  méthode de classe liée à la \digit après soumission d'un
+  formulaire d'ajout d'un \wit ou d'une \ser. L'action se
+  lançait immédiatement après enregistrement des images d'une
+  numérisation dans la plateforme.} au profit d'un système basé sur
+l'entité \tr. Chaque traitement est associé à un ensemble
+d'objets traités ensemble (\ds ou \rs), à un jeu de
+paramètres et à un résultat. Ces informations sont stockées dans une
+table dédiée. Cette approche facilite la gestion et le trackage des
+processus (notamment, les utilisateur.rices sont notifiés par e-mail à la fin
+du \textit{processing}), permet aux utilisateur.rices de consulter un historique de
+leurs actions et offre la possibilité de créer des \textit{workflows}
+personnalisés en passant par un formulaire de lancement unique mais
+extensif.
+
+En permettant de regrouper des documents de types différents (\wos,
+\sers, \wits) dans des \dss, on offre à
+l'utilisateur.rice la flexibilité de lancer des actions sur des ensembles
+d'entités hétérogènes et granulaires. Le traitement est ensuite réparti
+sur les entités de niveau inférieur (les témoins). Les \wits ainsi
+sélectionnés peuvent être soumis à une large gamme de traitements~: des
+fonctions déjà implémentées comme l'exportation (avec choix du
+format), l'extraction, la vectorisation, la recherche de similarité~; ou
+de nouveaux traitements personnalisés, tels que la visualisation sur une
+frise chronologique ou une carte. La modularité de la plateforme est
+assurée par un formulaire de lancement configurable, permettant de
+l'adapter à différents scénarios d'utilisation, et à l'ajout de modules
+personnalisés.
+
+Le \rs fonctionne similairement au \ds, à un niveau
+de granularité inférieur (à l'échelle de la zone d'image)\footnote{À
+  l'été 2024, l'entité n'existe pas encore dans la base de données, mais
+  le processus d'envoi du traitement et les modes de communication entre
+  l'application et l'\api prévoient la possibilité de lancer l'inférence
+  des modèles sur un ensemble de régions extraites.}.
+
+\hypertarget{extraction-des-zones-dimage-manuelle}{%
+\subsection{Extraction manuelle des zones d'image}\label{extraction-des-zones-dimage-manuelle}}
+
+Le choix de la méthode d'extraction des régions d'intérêt dans les
+documents constitue un élément clé de la modularité de la plateforme.
+Les utilisateur.rices peuvent opter pour une extraction manuelle ou une
+extraction automatique basée sur des algorithmes de vision par
+ordinateur, adaptée aux traitements à plus grande échelle.
+
+Après importation d'un enregistrement, le flux de travail procède à la
+création de \mans \iiif pour chaque numérisation
+(\digit) afin de permettre une visualisation grâce à la
+plateforme Mirador. Le module de base autorise par la suite
+l'extraction manuelle de zones d'intérêt au sein des images. Cette
+fonctionnalité est particulièrement utile pour les projets ne souhaitant
+pas recourir à des méthodes entièrement automatisées de vision par
+ordinateur. L'outil \sas permet de créer des annotations, c'est-à-dire de
+définir des régions d'intérêt spécifiques dans les numérisations, et de
+les indexer directement dans les \mans \iiif correspondants,
+enrichissant ainsi les ressources numériques. De plus, les
+développements futurs prévoient la possibilité d'importer des fichiers
+d'annotation préexistants en format .\textsc{txt} afin de pouvoir les indexer
+manuellement. Par conséquent, le \textit{workflow} de base ne comporte aucun
+traitement automatique basé sur la vision (et de fait éventuellement
+trop gourmand en puissance de calcul).
+
+L'extraction, qu'elle soit manuelle ou automatique, constitue le
+fondement du reste des processus. Une interface est disponible pour
+sélectionner un ensemble de documents et effectuer des actions
+spécifiques sur les témoins annotés, via le formulaire de traitement qui
+s'étend selon un choix de module configuré. Ainsi l'utilisateur.rice n'est
+pas limité par un contexte initial, à l'origine deux étapes
+indissociables et incontournables (importation et extraction), pour
+pouvoir effectuer d'autres actions. Cette modularité permet de
+s'affranchir d'un \textit{workflow} linéaire et prédéfini, offrant ainsi une plus
+grande adaptabilité aux besoins spécifiques et aux ressources
+matérielles des projets.
+
+Pour conclure, l'existence de ce module de base répond à des besoins
+élémentaires des projets de recherche en études visuelles. Il fournit un
+outil qui permet d'agréger toutes les sources primaires qui concernent
+le sujet, de décrire les sources et de les mettre en relation. Il offre
+en outre la possibilité d'extraire et visualiser des contenus d'intérêt
+(les ``crops'' d'images), ciblant ainsi les instances de base qui
+intéressent les chercheur.ses.

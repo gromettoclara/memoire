@@ -1,0 +1,65 @@
+
+
+La modularisation est une stratégie de développement applicatif visant à
+décomposer un système complexe en unités de code autonomes, appelées
+modules. Cette décomposition a pour objectif de minimiser les couplages
+entre ces modules, facilitant ainsi leur développement, leur maintenance
+et leur réutilisation.
+
+\begin{kwote}
+``La programmation modulaire est une solution favorisée pour la création
+d'une application réutilisable, puisqu'elle permet le développement de
+modules indépendants qui répondent à des besoins spécifiques, et qui
+peuvent être réemployés par d'autres projets sans être dépendants du
+reste de l'application. Ainsi, les différents traitements appliqués aux
+numérisations déposées par les utilisateur.rices font appel à des outils
+divers, indépendants, dédiés chacun à une tâche spécifique du \textit{workflow}~:
+cette disposition permet l'amélioration et la modification de chacun des
+modules sans impacter la structure globale de l'application, et permet
+également la récupération d'éléments spécifiques par des programmes
+futurs. Ainsi, le cœur de l'application \eida/\vhs (récemment baptisée \aikon) permet le dépôt, le
+stockage et l'aﬀichage des numérisations d'ouvrage, ainsi que la
+correction des annotations. La détection d'objet est gérée par une \api
+{[}\ldots{]}.''\footcite[p.52]{norindr_traitement_2023}
+\end{kwote}
+
+Comment penser des processus adaptables et un \textit{workflow} flexible~? Et
+quel est l'impact sur les (infra)structures de la plateforme~? En somme,
+d'un point de vue technique, comment se manifeste
+l'extensivité de l'outil \aikon~?
+
+\hypertarget{module-de-base}{%
+\section{Module de base}\label{module-de-base}}
+
+\input{templates/chapitre7/I}
+
+\hypertarget{les-taches}{%
+\section{Des tâches complémentaires~: parallélisation du
+\emph{workflow}}\label{les-taches}}
+
+\input{templates/chapitre7/II}
+
+\hypertarget{infrastructures}{%
+\section{(Infra)structures}\label{infrastructures}}
+
+\input{templates/chapitre7/III}
+
+\vspace{2cm}
+
+En conclusion, \aikon est
+composée de plusieurs modules applicatifs, elle est extensible et facile à maintenir (l'organisation des processus se reflétant
+dans l'arborescence de fichiers), tout
+en facilitant la gestion des dépendances et l'optimisation des
+performances. 
+
+ \begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=6cm]{figues/separate.png}
+	\end{center}
+	\caption{Représentation schématique des fonctionnalités et processus de la plateforme.*}
+	\label{fig:fonct_separes} \end{figure}
+
+Cette approche modulaire est particulièrement bénéfique
+pour les projets complexes nécessitant une collaboration entre plusieurs
+équipes de développement (c'est d'ailleurs le cas dans le cadre de la collaboration \eida/\vhs), assurant la qualité et la robustesse du code,
+et permet la modularité de la plateforme.

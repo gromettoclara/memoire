@@ -1,0 +1,471 @@
+L'industrie éditoriale destinée au milieu académique détermine depuis le
+\textsc{xix}\ieme siècle les standards desquelles héritent l'édition
+contemporaine\footcite{epron_ledition_2018}. Or, dans les traités historiques
+d'astronomie, il n'existe pas de norme pour la reproduction des
+diagrammes. Face à ce constat, il est nécessaire de mener une réflexion
+sur les enjeux épistémologiques et historiographiques du partage des pratiques d'édition des diagrammes, et sur les besoins de la
+mise en œuvre d'une édition numérique des diagrammes.
+
+\hypertarget{sortir-des-pratiques-aleatoires}{%
+\subsection{Sortir des pratiques
+aléatoires}\label{sortir-des-pratiques-aleatoires}}
+
+Adolphe Rome, dans l'introduction du premier volume de son édition des
+commentaires de Pappus et Theon sur l'Almageste de Ptolémée, a remarqué
+à propos des figures qu'``à leur manière, elles constituent également un
+texte à éditer''\footcite[Commentaires de Pappus et de Théon d'Alexandre sur
+l'Almageste, ed.~by A. Rome (Rome, 1931), i, p.~xxiv.][p.394]{jardine_critical_2010}. En
+tant qu'objet d'étude à part entière, porteur d'indices important, ils
+doivent être considérés au même titre que le texte comme des témoins des
+pratiques des sciences astronomiques et de la transmission des
+connaissances
+
+Or il n'existe ni conventions, ni normes pour une édition des traités
+astronomiques qui retracent efficacement les métamorphoses des images
+comme du texte de manière équivalente ; ce qui est surprenant car après
+tout, les éditeurs sont confrontés, avec les diagrammes, aux même
+problématiques que celles concernant les textes, à savoir des erreurs et
+variations. \citeauthor{jardine_critical_2010} parlent même de ``remarkable failure to take seriously
+the editing of diagrams''\footcite[p.393]{jardine_critical_2010}, et ce même dans les éditions
+numériques.
+
+\begin{kwote}
+``Text can be handled with \tei-compliant \xml ; a similar standard does not
+yet exist for diagrams.''\footcite[p.77]{roughan_digital_2014}
+\end{kwote}
+
+Les éditeurs font alors des choix dans la manière de représenter les
+diagrammes. Notamment, dans les manuscrits, il arrive régulièrement que
+les figures rentrent en contradiction avec le texte qui les accompagne.
+Jardine et Jardine remarquent alors que les éditions canoniques de ces
+grands traités d'astronomie corrigent les diagrammes afin de les rendre
+conformes au texte. Mais les modifications sont apportées sans
+commentaire, une pratique inenvisageable en ce qui concerne le
+texte.\footnote{\citeauthor{jardine_critical_2010} donnent
+  en exemple des cas où la casse des labels est modifiée pour s'aligner
+  avec le texte : \emph{Kepleri opera omnia}, ed.~by Ch. Frisch
+  (Frankfurt and Erlangen, 1858; facs. Hildesheim, 1971), i, 282, Fig. 9
+  N. Jardine's, in \emph{The birth of history and philosophy of science:
+  Kepler's A defense of Tycho against Ursus with essays on its
+  provenance and significance} (Cambridge, 1984; rev. edn, 1988). V.
+  Bialas's, \emph{Johannes Kepler: Gesammelte Werke}, xx/1 (Munich,
+  1988). (\cite[p.411]{jardine_critical_2010})}
+
+En outre, les éditeurs ont tendance à moderniser les conventions
+visuelles pour adapter les diagrammes à leurs lecteurs contemporains. En
+voici un exemple typique :
+
+\begin{kwote}
+``In Heiberg's edition {[}of Archimedis \emph{Archimedis Opera
+Omnia}{]}, medieval methods of representing diagrams are quietly
+abandoned in favor of more modern methods. Heiberg is not alone in
+silently modernizing the diagrams in his editions : many editors of
+mathematical texts diverge from the manuscripts in their presentation of
+diagrams. In some cases they''correct'' shapes ; in other they add more
+generality to diagram figures which in the manuscripts were
+overspecified. (For instance a manuscript diagram might have a right
+triangle but the text state that any triangle would do -- often modern
+editors choose to draw an irregular triangle instead so that their
+readers are not misled into thinking that the proof requires a right
+triangle.)``\footcite[p.78]{roughan_digital_2014}
+\end{kwote}
+
+La pratique de la correction ou adaptation dénote une perception très
+contemporaine du diagramme comme simple accompagnement des textes
+scientifiques auxquels ils sont soumis. Les illustrations sont
+considérées comme outil de compréhension du contenu textuel destiné au
+lecteur. Or les diagrammes médiévaux et du début de l'époque moderne ne
+se contentent pas d'illustrer le texte. Il est probable (c'est la position des chercheurs du projet \eida) qu'une grande variété de pratiques et de manières d'utiliser les diagrammes aient coexisté dans l'astronomie ancienne, tissant des relations complexes aux textes et aux données tabulaires. Par conséquent, imposer un principe d'édition unique, qui arrête un emploi des diagrammes, revient à contraindre artificiellement les sources, en occultant la diversité des représentations. Il est nécessaire de trouver, grâce au numérique, un environnement éditoriale plus plastique qui permette de représenter différentes modalités d'utilisations des diagrammes et de leur rapport aux autres éléments des sources (textes et tables).
+
+Dans l'édition papier, les tentatives d'édition pour les diagrammes
+reposent sur leur mise en texte. Les variations sont codifiées et
+expliquées\footcite[Voir les édition de]{de_young_editing_2014}.
+Les corrections, reconstructions, avec modernisation des conventions
+font également l'objet d'un accompagnement textuel\footcite[p.395]{jardine_critical_2010}.
+Selon \citeauthor{jardine_critical_2010}, bien que plus satisfaisantes que la
+modification sans signalement, ces pratiques, trop dépendantes des
+présupposés de l'éditeur et des objectifs éditoriaux (l'établissement du
+\textit{stemma}, l'attribution de la production ou encore une étude de la
+réception et la transmission), méritent d'être questionnées.
+
+Une première problématique concerne la mise en page et le placement du
+diagramme. L'adoption de la convention consistant à centrer l'image
+entre deux blocs de texte masque la manière dont l'emplacement peut
+s'avérer signifiant, les diagrammes centrés servant souvent de bases aux
+démonstrations textuelles, tandis que les diagrammes marginaux
+constituent généralement des gloses ou des commentaires sur le texte. La
+question de l'emplacement ne devrait pas être complètement éludée, mais
+comment faire cela avec l'imprimé sans sacrifier la lisibilité\footcite[p.400]{jardine_critical_2010} ? 
+
+Un second problème concerne l'observation des conventions graphiques.
+Leur compréhension n'est évidente que dans un contexte et une culture
+donnée (si on identifie immédiatement un code barre ou un QR Code, un
+alien qui arrive sur Terre ou un scribe du \ma pourrait croire à
+une simple tâche). Sans une étude des normes utilisées par les acteurs
+historiques, le jugement des variations et des erreurs demeure
+fondamentalement ambiguë : il est difficile de distinguer ce qui est le
+produit d'une convention et donc un standard, et ce qui relève de
+l'erreur, ou de l'innovation ; il est impossible de trancher avec
+certitude. Or ces variations, selon l'objectif de l'édition, tendent à
+être éludées, les éditeurs les considérant comme des erreurs minimes qui
+ne nécessitent pas un signalement.\footnote{``The basic task of editing
+  diagrams centers around things that go wrong with the reproduction of
+  diagram lines and points as diagrams are copied from one manuscript to
+  another. Just as when editing a verbal text, the principles of editing
+  include the recording as clearly as possible of all significant
+  variations within the tradition and indicating transparently any
+  editorial interference in the text.''\cite[p.229]{de_young_editing_2014}. La
+  notion de ``significant variation'' est problématique, car les
+  chercheurs n'accordent pas tous la même importance à tous les types de
+  variation pouvant affecter le diagramme.}
+
+Une étude exhaustive de l'ensemble du matériau visuel est indispensable
+au risque de rentrer dans un cercle vicieux herméneutique empêchant
+toute étude de cette riche grammaire visuelle, mais elle est complexe à
+mettre en œuvre, notamment dans un format \textit{print}\footcite[p.398]{jardine_critical_2010}.
+C'est pourquoi \citeauthor{jardine_critical_2010} plaident pour une approche qui met en
+évidence les conventions historiques (la disposition des diagrammes par
+rapport au texte, les utilisations de la perspective, de la couleur
+etc.) des diagrammes plutôt que de les uniformiser.
+
+Pour résumer, les méthodes d'édition des diagrammes contenus dans les
+traités éludent des informations importantes. Les éditeurs sont
+confrontés à un dilemme : concilier la production d'une version unifiée
+et lisible tout en préservant la richesse et la diversité des
+informations contenues dans les sources originales. Les supports
+imprimés présentant des limites face à cet objectif, le recours à
+l'édition numérique est une voie à explorer. Les chercheurs d'\eida s'y
+penchent pour élaborer une méthode d'édition capable de rendre compte de
+la complexité des processus de création, de transmission et de réception
+des diagrammes.
+
+\hypertarget{edition-numeriue-solution}{%
+\subsection{L'édition numérique : une solution
+?}\label{edition-numeriue-solution}}
+
+\begin{kwote}
+``We predict that this brave new world of digital editing will
+eventually produce a much better understanding and appreciation of the
+many lively roles of diagrams in early-modern astronomy.''\footcite[p.411]{jardine_critical_2010}
+\end{kwote}
+
+Quelles sont les avantages et les apports d'une édition numérique ?
+
+\hypertarget{un-format-enrichi}{%
+\subsubsection{Un format enrichi}\label{un-format-enrichi}}
+
+Les langages de balisage comme le \xml (utilisé dans le format \svg) permettent d'expliciter le sens et la valeur de certaines parties des diagrammes, ce qui s'avère très utile d'un point de vue scientifique, car les données deviennent exploitables à un niveau de détail très fin. 
+
+Le format \svg permet de verrouiller ensemble des complexes géométriques
+et/ou des labels, d'effectuer des recherches de similarité dynamique, ou
+encore d'insérer des identifiants. Ces derniers rendent alors possible
+des formes de citation permettant de documenter et justifier des choix
+éditoriaux.
+
+Le projet \emph{Archimedes} (College of the Holy Cross), par exemple,
+présente une méthode d'édition numérique et diplomatique des diagrammes
+mathématiques de tradition grecque présents dans les sources médiévales,
+en utilisant le \emph{framework} \CITE comme outil de citation. Il y est
+utilisé pour lier une édition diplomatique d'un diagramme à la preuve
+de sa transcription, à la proposition mathématique associée, et pour
+faire tenir ensemble toute l'édition numérique du traité\footcite{roughan_digital_2014}.
+
+L'architecture \CITE\footcite{blackwell_cite_2019} a été
+initialement développée pour le projet \textit{Homer Multitext}\footcite{noauthor_homer_nodate}. Elle fournit
+une méthode pour l'identification, la récupération, la manipulation et
+l'intégration de données d'une bibliothèque numérique via des \urns,
+notamment via des mécanismes pour relier les différents objets. \CITE
+offre un cadre, une méthode pour la création et la gestion d'éditions
+numériques complexes, en particulier pour faire tenir ensemble des
+éléments hétérogènes (comme les images et leurs transcriptions),
+associant le tout dans un index qui organise la donnée en triplets.
+
+Initialement pensé pour le texte, l'utilisation du standard de citation
+\CITE dans le cadre du projet \emph{Archimedes} montre la manière dont il
+peut être appliqué à l'édition numérique des diagrammes, combinant texte
+et images et permettant l'identification et le lien entre les éléments à
+un niveau de granularité très fin.
+
+Le standard de citation \CITE, traditionnellement utilisé dans l'analyse
+textuelle, a fait l'objet d'une adaptation pour répondre aux besoins de
+l'édition diplomatique numérique des diagrammes dans le cadre du projet
+\textit{Archimedes}. Il permet d'atteindre un niveau de granularité très fin dans
+l'identification et l'interconnexion des éléments constitutifs des
+documents, qu'ils soient textuels ou visuels. À titre d'exemple, chaque
+objet géométrique dont il est question dans les propositions
+mathématiques du texte sont associés à deux ensembles de labels
+distincts : ceux utilisés dans le texte pour le désigner et ceux qui le
+marquent directement sur la figure, les deux pouvant différer. L'objet
+est au premier ensemble via son identifiant (attribut \texttt{id}) assigné à
+partir des labels qui lui réfèrent dans le texte (le cercle ABC du
+texte a un identifiant \texttt{circleABC}). Ils sont reliés au second
+ensemble de labels via des triplets rassemblés dans l'index et selon la
+syntaxe : \texttt{circleABC} \texttt{hasLabel} A, par exemple. Cependant, si
+le projet \emph{Archimedes} a besoin de mettre du liant entre les
+entités numériques, c'est au titre d'une édition complète des traités,
+comprenant textes et illustrations, ce qui n'est pas le projet de la
+plateforme d'édition d'\eida, relativisant la pertinence de l'utilisation du cadre \CITE dans le cadre
+d'une édition uniquement des illustrations\footcite[p.81]{roughan_digital_2014}.
+
+\hypertarget{interactivite}{%
+\subsubsection{Interactivité}\label{interactivite}}
+
+Une édition numérique autoriserait des formes d'interactivité
+impossibles à obtenir dans le \textit{print} :
+
+Déjà, des scripts de reconnaissance des formes et des
+labels, basés sur la lecture du format \svg, permettraient d'identifier
+automatiquement la présence ou absence de certains éléments graphiques
+dans les sources. La modulation des critères de recherche, en incluant
+ou excluant certains calques (par exemple, en considérant ou non la
+couleur), permet d'affiner les résultats, prenant en compte toute la
+complexité des figures. De telles recherches effectuées dans le corpus de
+sources pour retrouver des configurations similaires offriraient la
+possibilité d'opérer un tri dynamique dans le corpus de sources, avec
+pour ambition d'automatiser la génération d'un apparat critique.
+
+La possibilité d'avoir un accès direct à l'image source -- sans
+altération de la lisibilité de l'image éditée -- renforce la rigueur
+scientifique de l'édition. Cette approche permet d'éviter les biais
+interprétatifs liés à une description textuelle et offre aux chercheur.ses
+une vision synoptique des variantes au sein d'un corpus. De plus, la
+capacité à contextualiser chaque diagramme en le reliant à sa page de
+manuscrit d'origine facilite l'analyse des facteurs matériels liés à sa
+réception et sa transmission.
+
+Enfin, les visualisations d'une édition pourraient inclure un
+environnement de type \emph{sandbox} pour des comparaisons et superpositions
+interactives. Les utilisateur.rices pourraient comparer les images originales
+(les témoins) et éditées, et accéder à la page source pour une
+vérification détaillée des décisions éditoriales et corrections. Cette
+multiplicité de perspectives faciliterait l'analyse approfondie des
+diagrammes, l'édition numérique pourrait ainsi résolument appuyer les
+analyses historiographiques et les processus d'interprétation des
+chercheur.ses, ce que souligne \citeauthor{roughan_digital_2014} :
+
+\begin{kwote}
+``When mathematical documents are digitized, diagrams should receive the
+same attention as text does : both are vehicles of the mathematical
+argument.''\footcite[p.78]{roughan_digital_2014}
+\end{kwote}
+
+\hypertarget{exigences-et-dissensus}{%
+\subsection{Exigences et dissensus}\label{exigences-et-dissensus}}
+
+À l'heure de la rédaction de ce mémoire, les modalités des divers types
+d'éditions suscitent encore de nombreuses interrogations parmi les
+chercheur.ses d'\eida. En effet, si le texte hérite d'une tradition
+éditoriale de près de deux siècles et des apports de l'ecdotique et de
+la philologie, les normes restent à inventer pour le matériau graphique,
+ce qui soulève inévitablement des questions épistémologiques et
+heuristiques. Le système inventé pour le texte est-il transférable ?
+C'est toute la question : certains chercheurs veulent s'inscrire dans
+les traditions philologiques textuelles, d'autres entendent s'en écarter
+pour mieux s'adapter à l'objet image.
+
+\dishas, dont les objets d'étude sont les tables astronomiques, arrête
+trois types d'édition~: l'édition ``diplomatique'' d'une table originale
+(type A), l'édition ``critique'' basée sur plusieurs sources (type B),
+et l'édition ``recalculée'' qui s'appuie sur un modèle mathématique
+reconstruit par l'éditeur et pas nécessairement lié à une quelconque
+source. Déjà, \dishas optait pour des dénominations délibérément neutres
+(types A, B, C) pour les types d'édition des tables, afin de pouvoir
+s'éloigner des catégories canoniques et hérités de la tradition
+textuelle. Un alignement avec les trois types d'édition présents dans
+\dishas constitue un angle d'approche mais ce système n'est pas
+complètement transférable non plus.
+
+\hypertarget{type-a-ou-edition-diplomatique}{%
+\subsubsection{Type A ou édition diplomatique
+?}\label{type-a-ou-edition-diplomatique}}
+
+Dans \dishas, les éditions de type A s'appuient sur un seul témoin et se
+veulent au plus proche du texte. Il n'est cependant pas possible de
+parler d'édition diplomatique dans la mesure où aucune donnée de mise en
+page n'est reproduite. Elles constituent ensuite la base des éditions
+``critiques'' qui s'appuient sur plusieurs témoins.
+
+\begin{kwote}
+``Plusieurs éditions peuvent être réalisées d'un même original item, et
+une édition peut elle-même s'appuyer sur plusieurs éditions préalables.
+Le travail de transcription d'une table étant sujet à interprétation, il
+est ainsi considéré dans DISHAS qu'une édition critique de plusieurs
+témoins constitue en réalité l'édition de plusieurs éditions. Une simple
+transcription constitue déjà en ce sens, une édition classique (éditions
+de type A {[}\ldots{]}).''\footcite[p.24]{albouy_mediation_2019}
+\end{kwote}
+
+Dans le cadre du projet \eida, la catégorie correspondante s'appuierait
+sur une vectorisation automatique corrigée. Cela soulève la question de
+l'intervention des chercheur.ses : quand passe-t-elle de la correction à
+l'édition ? Les chercheur.ses doivent définir ce qui constitue pour eux une
+``édition type A'' et ce qu'elle apporte de plus par rapport à la simple
+correction d'une transcription par des modèles d'\ia.
+
+Le Projet \textit{Archimedes}, dans sa vision de l'édition diplomatique des
+diagrammes, choisit de maintenir un parallèle avec le texte, comme
+l'explique \citeauthor{roughan_digital_2014} :
+
+\begin{kwote}
+``For a comparison : digitally, diplomatically transcribing the text of
+a manuscript accomplishes certain goals. Such a transcription makes the
+text in the manuscript more accessible to those unfamiliar with the
+manuscript's paleography and more accessible when it is faded or
+obscured. It also makes the text in the manuscipt machine-actionnable
+and allows for annotations to mark certain features (personal names,
+unclear text, expanded abbreviations, etc.).''\footcite[p.78]{roughan_digital_2014}
+\end{kwote}
+
+\begin{kwote}
+``A digital, diplomatic transcription therefore should make the diagram
+in the manuscript more accessible, make the information contained in the
+diagram machine-actionable, and allow for editorial
+annotations.''\footcite[p.78]{roughan_digital_2014}
+\end{kwote}
+
+Les éditions diplomatiques du projet \textit{Archimedes} apportent une valeur
+ajoutée par rapport à une simple image raster, en améliorant la
+lisibilité et en réduisant le bruit de la numérisation. Enrichies par
+rapport à une simple transcription vectorielle, elles intègrent des
+identificateurs uniques normalisés pour chaque élément géométrique. Ces
+identifiants combinent le terme contemporain désignant la forme avec les
+labels issus de la proposition mathématique associée.
+
+Il y a donc un enjeu, dans le cadre d'\eida, à penser des protocoles
+statuant sur des états (au sens presque chimique du terme) d'une
+transcription, et à articuler ces états avec les protocoles de
+versionning. Les chercheur.ses devront alors décider sur quelle version
+baser leurs éditions critiques.
+
+\hypertarget{sur-quels-objets-baser-une-edition-corrigee}{%
+\subsubsection{Sur quels objets baser une édition corrigée
+?}\label{sur-quels-objets-baser-une-edition-corrigee}}
+
+Dans \dishas, pour réaliser une édition de type C, le.la chercheur.se récupère
+les paramètres d'une table témoin et recalcule l'ensemble de ses valeurs
+à l'aide de modèles mathématiques contemporains. Ce type d'édition
+permet, entre autres, de comparer les techniques arithmétiques anciennes
+et modernes, en observant par exemple les variations de certaines
+constantes mathématiques. Dans le modèle de données, les tables
+corrigées renvoient aux scénarios de calcul utilisés.
+
+Une édition corrigée d'un diagramme repose sur la proposition
+mathématique qu'il illustre et correspond à ce qui est textuellement
+décrit. Une telle édition permet d'observer les déviations par rapport à
+la démonstration (témoignant des modalités de réception) ou bien les
+phénomènes d'\emph{overspecification}, c'est-à-dire la tendance à
+représenter des formes très spécifiques comme des triangles rectangles
+ou équilatéraux, alors que la preuve textuelle ne les mentionne pas
+(suggérant plutôt des représentations quelconques). Cependant, dans
+\eida, ces éditions ne s'appuient sur aucun objet informatique, car les
+textes des manuscrits ne sont pas intégrés à la plateforme, ce qui est
+scientifiquement insatisfaisant et fait douter de la possibilité
+d'intégrer ce type d'édition dans la plateforme.
+
+\hypertarget{peut-on-vraiment-parler-dedition-critique}{%
+\subsubsection{Peut-on vraiment parler d'édition critique
+?}\label{peut-on-vraiment-parler-dedition-critique}}
+
+Une édition critique s'appuie sur un ensemble de témoins dont les
+vectorisations ont été corrigées et figure donc un apparat critique. Le
+défi consiste à imaginer un outil d'édition scientifique des diagrammes
+pensé pour donner un accès aux variantes pour chaque complexe de
+primitives et/ou label verrouillé sous l'œil expert du.de la chercheur.se. Les
+débats portent sur les modalités d'accès aux variations.
+
+Certains chercheur.ses du projet défendent une codification des types de
+variantes directement sur le diagramme\footcite[``Electronic tools such
+  as DRaFT allow us to indicate editorial actions by altering the weight
+  of solid lines or by using various forms of dashed lines.''][p.229]{de_young_editing_2014}. Ce
+système, conçu initialement pour le texte et l'imprimé, repose sur une
+séquentialité et se transfère mal à l'immédiateté des images. En effet,
+l'image présente une densité d'information qui se manifeste en une seule
+fois, contrairement au texte qui se déploie progressivement. Par
+ailleurs, de nombreux symboles graphiques et expressions visuelles sont
+déjà utilisées dans les sources par les acteurs historiques. Ces deux
+problématiques (la densité d'information et la difficile dissociation des
+annotations éditoriales des éléments du diagramme) rendent le résultat
+rapidement chargé et illisible. De plus, l'absence d'un langage
+symbolique partagé au sein de la communauté scientifique limite les
+possibilités de collaboration autour de cette méthode, pouvant susciter
+des problèmes d'interprétation\footcite[``Since there is as yet no
+  strong consensus on how to indicate various forms of editor
+  interference within diagrams, there is the potential for confusing or
+  contradictory indicators to develop.''][p.229]{de_young_editing_2014}. Par
+ailleurs, est-il même possible de répertorier et symboliser de manière
+exhaustive tous les types de variation possibles ? Cette méthode a
+néanmoins l'avantage d'être transposable facilement du numérique à
+l'imprimé.
+
+La proposition défendue par d'autres chercheur.ses est celle d'une
+représentation résolument numérique (quitte à ce qu'elle le soit
+uniquement). La visualisation de l'édition devrait alors fournir un
+apparat critique interactif, uniquement visuelle, généré automatiquement
+sur la base de l'analyse systématique des fichiers \svg. Ainsi l'édition
+se détacherait de toute description textuelle comme du langage visuel
+des diagrammes. L'idée initiale consisterait à générer un apparat critique
+qui ne montrerait pas les variantes mais les invariantes, via une
+recherche dynamique de complexes similaires dans le corpus de sources,
+avec système de calques (couleur, épaisseur, etc.) à prendre en compte
+ou ignorer.
+
+Cependant, dans la tradition philologique textuelle, un certain nombre
+de notions ont été définies et fondent la légitimité d'une édition
+critique, spécifiquement les concepts d'apparat critique et de
+collation.
+
+\begin{kwote}
+``The critical apparatus of readings may be positive, that is mention
+all the witnesses in each note, or negative, that is mention only the
+witnesses disagreeing with the chosen reading.''\footcite[p.348]{moureau_apparatus_2015}
+\end{kwote}
+
+Soit la phrase ``Tom sort pour acheter une pizza''. Les manuscrits A, B,
+C, D ont ``pizza'', tandis que les manuscrits E, F, G ont ``piazza''.
+``Pizza'' est la bonne lecture. Un appareil positif notera : ``pizza A B
+C D : piazza E F G'' tandis qu'un appareil négatif notera : ``pizza{]}
+piazza E F G''. La différence tient essentiellement dans la manière de
+séparer le ``bon mot'' de ``la variante''. Finalement, tant l'appareil
+positif que négatif nécessitent de tabler sur ce qui est juste et ce qui
+est faux.
+
+La collation désigne l'acte d'enregistrer les différences entre les
+textes préservés dans les manuscrits. Ces différences peuvent concerner
+: des fautes d'orthographe, des inversions de mots ou de syntagmes, des
+suppressions, des mots illisibles, des corrections faites par le scribe
+du texte principal, des corrections faites par d'autres, etc. Le mot
+collation vient du latin \textit{collatio} qui signifie `rassemblement,
+assemblage'. En ce sens, le terme peut donc être employé pour désigner
+le rassemblement de tous les diagrammes témoins qui présentent une
+configuration similaire, grâce à une recherche de similarité dans le
+corpus de fichiers \svgs sur lequel l'édition est basée.
+
+Mais pour qu'une information figure dans un apparat critique au sens
+philologique du terme, c'est-à-dire pour qu'elle soit pertinente pour
+l'intérêt d'une édition, elle doit présenter une variation par rapport à
+un cadre invariant. Dans des termes simples, si tous les manuscrits
+avaient ``pizza'', l'apparat critique serait vide car il n'y aurait rien de
+remarquable à ce sujet. Si les manuscrits présentaient deux autre
+graphies, et une suppression, les trois variantes seraient répertoriées,
+distinguées et associées ensemble aux témoins qui les présentent. C'est
+pourquoi ``apparat critique'' ne serait pas un bon terme dans le
+langage des éditeurs pour désigner les résultats d'une simple recherche
+de similarité dans les fichiers \svgs\footcite[PAGE]{trovato_everything_2014}.
+
+La mise en œuvre d'une collation automatique visant à produire un
+apparat critique positif d'un diagramme nécessite une double
+segmentation : une segmentation en classes de similarité (invariantes
+vs.~variantes) et une classification fine des variantes selon le type de
+transformation visuelle. Cette classification pose le défi d'identifier,
+parmi la multitude de variations possibles, celles qui sont à la fois
+détectables par les algorithmes et pertinentes pour l'analyse.
+
+Cela démontre que l'élaboration d'une typologie des éditions de
+diagramme ne peut se faire par simple analogie avec les textes. Les
+classifications existantes, notamment celle proposée par \dishas,
+fournissent un cadre de référence utile. Cependant, la spécificité des
+opérations éditoriales sur les images nécessite une adaptation et une
+extension de ces classifications. Ces enjeux terminologiques soulignent
+le besoin d'une réflexion collective pour parvenir à une standardisation
+des termes et des concepts.
+

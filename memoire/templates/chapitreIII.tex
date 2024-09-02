@@ -1,0 +1,161 @@
+La \bnf constate le besoin d'automatisation pour traiter les volumétries
+croissantes des collections numérisées, en outre caractérisées par une
+variété considérable, et elle relève les tensions se jouant dans le traitement en
+masse de données hétérogènes.
+
+\begin{kwote}
+
+"De plus en plus confrontées à des niveaux de volumétrie et de vélocité
+typiques des mégadonnées (big data), les collections numériques de la
+\bnf, qui occupent aujourd'hui environ six pétaoctets, sont caractérisées
+par une variété considérable. Documents numérisés, tels que par exemple
+les livres et manuscrits consultables dans Gallica --- la bibliothèque
+numérique de la \bnf ---~; documents nativement numériques comme les
+œuvres d'art vidéo, les logiciels, les bases de données, les archives de
+l'Internet~; métadonnées bibliographiques et données d'autorité
+décrivant les personnes, lieux, organisations, concepts\ldots{} autant
+d'ensembles de données diverses en termes de structures, formats,
+qualité, contextes de production, fonctions et contenus. Ces ensembles
+ont des histoires différentes, issues des changements des supports et
+des multiples strates de pratiques documentaires accumulées au fil du
+temps. Leur hétérogénéité exige des traitements spécifiques et par
+conséquent des compétences et des méthodes particulières, aussi bien
+pour les conserver ou les communiquer que pour les analyser (cf
+Moiraghi, 2017). Cette hétérogénéité des données, qui découle de
+l'amplitude chronologique et de la vocation à l'encyclopédisme
+caractéristiques des bibliothèques nationales, s'ajoute à
+l'accroissement de la quantité des données en entrée et à l'accélération
+conséquente des temps de traitement. La tendance traditionnelle des
+bibliothèques à la systématisation des procédures doit dès lors trouver
+son équilibre face à la spécificité des données mais aussi des questions
+scientifiques propres aux projets de recherche qui les
+exploitent".\footcite[p.6]{bermes_patrimoine_2020}  
+\end{kwote}
+
+L'état de l'art montre une convergence vers l'utilisation de
+l'intelligence artificielle pour traiter efficacement des corpus de
+données de plus en plus vastes et complexes. Cette systématisation doit
+cependant être équilibrée par une compréhension fine des contextes
+locaux et spécifiques des données, afin de garantir la pertinence et
+l'efficacité des outils développés.
+
+Les explorations autour du traitement du patrimoine numérique menées à
+la \bnf\footnote{\cite{bermes_patrimoine_2020}, \cite{beaudouin_cartographie_2017}, \cite{michez_gallicapix_2021}, \cite{bouchard_presentation_2017}},
+en rapport étroit avec des projets de recherche en \hn, illustrent bien
+cette tension. Ces projets ont porté sur des ensembles de données
+balisés et spécifiques (tel que les sources documentaires numérisées
+autour de la guerre 14-18, les publicités de 1910 à 1920, illustrations
+du magazine de mode Vogue de 1920 à 1940 ou encore illustrations de
+papier peint\footnote{\cite{beaudouin_cartographie_2017}, \cite{michez_gallicapix_2021}}). L'absence de
+passage à l'échelle est significatif des difficultés d'un traitement et
+d'un enrichissement systématique et standardisé de très grands volumes de données très
+hétérogènes. Ainsi, chacun des projets reposait sur des méthodes et des
+techniques différentes en raison de la nature des données explorées et
+des finalités scientifiques propres à chaque projet.
+
+Cependant des leçons ont été tirées~: les résultats découlent d'un
+travail collectif et interdisciplinaire, et se sont appuyés sur des
+méthodes standardisées, par exemple pour l'extraction des données et
+métadonnées via des \apis\footcite[p.7]{bermes_patrimoine_2020}. Ces
+premières applications de l'\ia ont démontré la nécessite de garantir la
+reproductibilité des méthodes et d'adopter des normes pouvant mettre en
+œuvre un cadre technique interopérable afin de faciliter la
+collaboration à plusieurs échelles~: entre les projets de recherche d'un
+part, et d'autre part entre les disciplines et les corps de métier
+(notamment entre les chercheur.ses et les professionnels des
+bibliothèques).
+
+Le projet \gaga\footnote{https://gallicorpora.github.io/} --
+bénéficiant de l'appui du DataLab de la \bnf -- se détache néanmoins dans
+le paysage des projets estampillés \bnf, car il aspire à s'éloigner le
+plus possible de son corpus, voulant concilier reproductibilité des
+résultats sur des données diverses et applicabilité à un large corpus
+issu des collections numérisées de la Bibliothèque Nationale. Il
+illustre en outre les problématiques susmentionnées~: l'inscription dans
+un dialogue interdisciplinaire et dans des pratiques normalisées.
+L'ambition du projet porte sur le développement d'une chaîne de
+traitement automatisée pour la transcription et l'annotation des documents textuels historiques, en diachronie longue, en
+partant de leurs numérisations disponibles sur le portail Gallica,
+créant ainsi des corpus enrichis, et facilitant leur exploitation et
+leur valorisation. En effet les besoins des institution se déplacent de la transcription des textes à leur encodage sémantique automatique en \xml-\tei, afin d'offrir
+utilisateur.rices de bibliothèques numériques de nouvelles options pour la
+fouille de données. Le projet \gaga s'inscrit dans cette
+dynamique, en exploitant le riche corpus de la \bnf, qui met à disposition 193 265
+manuscrits, dont 52 188 précédent 1800, et 1 182 471 livres imprimés,
+dont 160 335 précédent 1800\footcite{sagot_gallicorpor_2022}.
+
+\begin{kwote}  
+``Le nouveau défi à relever aujourd'hui est de transformer ces
+numérisations en des ressources enrichies, qui augmentent le texte
+extrait et repérable avec de la métadonnée et de l'analyse. Le texte
+brut et non annoté ne suffit plus pour la recherche en informatique
+appliquée aux documents historiques. De là vient l'impulsion pour le
+projet \gaga. Le projet envisage la mise en place d'un pipeline
+qui saisit un document numérisé depuis le portail Gallica et renvoie une
+ressource numérique très enrichie. En plus d'une description du texte
+repérable, la ressource présentera les données structurelles portant sur
+la mise en page, ainsi qu'une analyse linguistique du texte extrait et
+des métadonnées portant sur le document physique et le fac-similé
+numérique''.\footcite{christensen_gallicorpor_2022}.
+\end{kwote}
+
+En outre, le but sous-jacent du projet est de produire un prototype qui
+pourrait servir d'exemple de chaîne d'acquisition
+numérique pour les institutions
+patrimoniales. Par conséquent, ce projet se propose aussi d'être une
+preuve de concept d'un \emph{modus operandi} pour l'extraction et
+l'annotation de textes très divers, créant une sorte de pipeline ultime. Mais avant tout, la chaîne de traitement est destinée à être applicable
+à un large corpus de documents mis à disposition par la \bnf. Les
+documents du corpus visé proviennent de différentes époques (du \textsc{xv}\ieme au
+\textsc{xviii}\ieme siècle) et présentent une grande diversité de mises en page, de
+langues (ancien français, moyen français, français classique), et de
+supports (manuscrits, imprimés). L'hétérogénéité des sources est censée
+faire preuve de faisabilité, et vérifier le potentiel de la méthode
+élaborée. Elle vise à prouver que le concept d'une chaîne de traitement
+généraliste peut être concrètement appliquée.
+
+\gaga expose ainsi la plupart des questionnements et défis
+tenant au montage d'une chaîne de traitement unifiée applicable à une
+grande diversité de données. Les choix technologiques, tels que
+l'adoption de formats ouverts et interopérables, la prise en compte de
+la diversité des modes d'acquisition des données et la spécialisation
+des modèles d'\ia, sont au cœur de ces enjeux. Par ailleurs, la question
+de l'ouverture des corpus annotés, essentielle pour l'apprentissage
+machine, est également un axe d'analyse à considérer.
+
+                \hypertarget{formats-standards}{\section{%
+                Formats standards}\label{formats-standards}}
+                    \input{templates/chapitre3/I}
+                    
+                 \hypertarget{specialisation-modeles}{%
+                \section{La spécialisation des modèles}\label{specialisation-modeles}}
+                \input{templates/chapitre3/III}
+                    
+                \hypertarget{normalisation-donnees}{\section{%
+                La normalisation des données d'annotation}\label{normalisation-donnees}}
+                    \input{templates/chapitre3/II}
+                    
+
+              
+
+
+\vspace{2cm}
+
+
+Les apports et les réflexions du projet \gaga reflètent la problématique globale de ce
+mémoire~: comment concevoir des cadres pour l'environnement de la
+recherche en Humanités Numériques, tout en répondant aux exigences
+scientifiques de chaque projet. On voit se filer avec ce cas d'étude un écosystème complexe dans lequel s'agencent des systèmes et protocoles généraux et extensibles, adaptables aux besoins locaux, comme la \tei, ou SegmOnto, ou encore des \api pour la récupération des données. De nombreux défis restent cependant à relever, montrant que l'interopérabilité universelle est un idéal difficilement atteignable.
+
+L'utilisation de l'\ia porte la question du partage des ressources à un niveau d'importance supérieur, puisque les modèles peuvent être spécialisés, et les corpus enrichis produits peuvent constituer des données d'entraînement. L'intervention du chercheur.se pour corriger les résultats des traitements automatiques est donc un aspect important à prendre en compte pour assurer la fiabilité scientifique de ses corpus annotés. 
+
+\gaga visait à l'élaboration d'un
+outil d'acquisition et d'enrichissement des données capable de se
+détacher d'un corpus spécifique et sur ce point se voulait preuve de concept, mais le projet
+n'a pas pleinement atteint ses objectifs, car la chaîne de traitement est restée très orientée vers les corpus de la \bnf. Il a ainsi mis en
+évidence la complexité de concilier les exigences d'une infrastructure
+générique et les besoins spécifiques des données, montrant que la modularité s'inscrit avant tout dans le temps. 
+
+Comme le montre le cas de e-Scriptorium, une chaîne de traitement, si elle est assez généraliste pour tolérer une grande diversité de données, participe à la cohérence des pratiques et à la mutualisation des outils de la recherche. Les modalités d'accès (notebooks, plateforme, scripts etc.) impactent la prise en main et l'adoption des outils. 
+
+Plus généralement, les recherches menées sur l'enrichissement et l'exploration de larges corpus grâce aux outils d'\ia ouvrent de nouvelles perspectives en terme de trouvabilité et de fouille de données visuelles ou textuelles. Cette valeur ajoutée est liée au passage du format \jpeg à des formats balisés et sémantiquement riche qui permettent des exploitations ou l'indexation. 

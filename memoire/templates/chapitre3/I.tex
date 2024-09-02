@@ -1,0 +1,56 @@
+Une telle chaîne de traitement automatique va s'appuyer sur des protocoles, des cadres et des formats standards adaptés au contexte de la recherche. 
+
+La chaîne de traitement de \gaga prend en entrée les pages numérisées du document
+source, et fournit en sortie une ressource numérique composite exposant
+les métadonnées, la transcription du document par des
+modèles \htr et le texte dit \textit{pré-éditorialisé}, obtenu en parsant les données
+récupérées des fichiers \alto\footnote{L'\ocr et l'\htr produisent un
+  format basé sur \xml et géré par un schéma, le format \alto. \alto est un des formats les
+  plus couramment utilisés pour la conversion des textes contenus dans
+  les documents textuels numérisés, il embarque de nombreuses
+  informations, notamment il va représenter la structure physique de la
+  page. Il va repérer le layout de la page, dans le layout les blocs de
+  texte, dans les blocs de texte les paragraphe, dans les paragraphes
+  les lignes, et dans les lignes les chaînes de caractères. On a aussi
+  des informations sur le style (gros ou petits caractères). Le format
+  \alto contient aussi des informations techniques sur la confiance de la
+  reconnaissance. Il conserve toutes les coordonnées géométriques des
+  contenus (textes, illustrations, graphiques) dans l'image et permet
+  ainsi l'alignement de l'image et du texte, la superposition de la mise
+  en page et de la prédiction des modèles (par exemple dans un fichier
+  PDF multicouche). C'est de cette manière qu'on peut par exemple
+  obtenir la surbrillance des mots recherchés sur l'image lors d'une
+  requête dans le texte.} (la première transcription du texte), et en
+ignorant la mise en page. Ce dernier texte sert à la génération de
+l'objet suivant : le texte analysé par les outils \tal. Chaque élément de
+la sortie de la pipeline ouvre des possibilités d'usages différents des
+données textuelles. À l'issue de la chaîne de traitement, l'utilisateur
+obtient un fichier \tei destiné principalement à une exploitation
+philologique utilisant des approches de type ``distant-reading''. 
+
+Pour rassembler les sorties des modèles et des traitements, \xml-\tei semble particulièrement adapté.
+
+Les principaux avantages du langage \xml sont son interopérabilité et l'encodage sémantique qu'il permet. \xml est un langage libre et documenté, respectant les recommandations du \wtc, et facilitant l'échange de données et la migration vers d'autres plateformes, logiciels ou formats. Il a l'avantage d'être lisible à la fois par les machines ou par l’œil humain.
+
+La \tei est un langage \xml. Elle a été d’abord développée comme un projet de recherche. L’idée originelle était de proposer un ensemble de recommandations sur la façon dont les chercheurs devraient créer des ressources textuelles \textit{computable} (lisibles par ordinateur), qui soient adaptées aux besoins de la recherche – dans la mesure où un consensus existait sur le sujet –, mais qui soient également extensibles, puisque ces besoins changent et évoluent. Ces principes visent à établir un cadre unifié et interopérable\footnote{basée sur le langage \xml, la \tei est indépendante de tout environnement logiciel, et donc idéale pour l’ échange et la collaboration.} pour l'échange et le traitement de données textuelles dans la recherche en \shs, en prenant en compte les besoins spécifiques de différents domaines et projets.
+
+L'atout majeur de la \tei est donc sa flexibilité et son aspect modulaire. Ses \textit{guidelines} définissent plusieurs centaines de concepts différents, avec les instructions détaillées sur les éléments qui peuvent être utilisés pour les représenter informatiquement, mais les projets d’encodage n'en utilisent donc qu'un sous-ensemble restreint.\footnote{La définition d'un
+  modèle \tei (via une \odd) restreint certains éléments et permet la
+  personnalisation d'autres.}. C'est en partie à ce titre qu'elle est utilisée dans le cadre du projet \gaga, permettant un encodage léger mais adapté à l'exploitation des corpus enrichis. Elle est en outre un format pivot. 
+
+Les différents niveaux de description proposés constituent un autre point fort de la \tei. Elle propose des éléments pour l'encodage des aspects physiques de la page, purement visuel comme la mise en page, ou pour des considérations paléographiques (abréviations et forme développée, etc.). Mais aussi elle permet un balisage sémantique, analytique et des métadonnées. Le format \xml-\tei embarque donc le contenu intellectuel (le texte annoté issu des post-traitements) comme la représentation matérielle du document source (notamment la mise en page encodée dans les sorties des modèles \htr au format \alto), ainsi qu'un teiHeader riche pour les métadonnées\footcite{gabay_gallicorpor_2022}.
+
+Enfin, \xml-\tei est le standard pour l'édition et la publication dans le milieu de la recherche\footcite{gabay_gallicorpor_2022}. 
+
+\eida trouve dans le format \svg un équivalent à \xml-\tei dans le domaine graphique, de par sa capacité à agréger les résultats de traitements variés, à assurer l'interopérabilité avec d'autres environnements logiciels et applicatifs, mais aussi son balisage sémantiquement riche. Sa structure basée sur des éléments \xml le rend particulièrement adapté à des traitements informatiques ultérieurs. 
+
+Les moyens d'accès à la donnée reposent eux aussi sur des protocoles standards : via des \api comme le service \sru de la \bnf, il est possible d'automatiser à la fois l'encodage des métadonnées et celui du texte issu du document facsimilé numérisé à partir d'une 
+liste d'identifiants \ark. Cependant, cette approche systématique se trouve confrontée à la diversité des sources de données. Si le passage de \alto (issu de la transcription) à \tei est assez facilement généralisable, la génération automatique du
+teiHeader est hautement dépendante de l'origine des documents transcrits. Les
+moyens d'accès et la structure des notices bibliographiques diffèrent d'une institution à
+l'autre, et un script de récupération des métadonnées se voulant hautement modulaire devrait prendre en compte ces spécificités\footcite[p.117]{kristensen_dalto_2022}. Ces remarques montrent les limites de l'idéal de l'interopérabilité universelle : malgré les tentatives de généralisation
+et les nombreux consortium, les bibliothèques et institutions ne
+présentent pas les métadonnées des documents selon les mêmes standards. Comme expliqué précédemment, cette problématique a aussi été soulevée dans le cadre d'\eida, qui montre ainsi une souplesse accrue dans les modes d'accès aux données.  
+
+\gaga s'appuie non seulement sur des cadres et des formats standards, mais aussi sur les développements d'autres projets, que ce soit des outils de traitement ou des environnements applicatifs complets. L'interface de post-correction Pyrrha, par exemple, a été utilisée pour préparer les données de lemmatisation\footcite{sagot_gallicorpor_2022}, tandis que e-scriptorium a servi pour la création des corpus annotés pour l'entraînement des modèles d'\htr. Cette
+démarche illustre bien l'interdépendance des projets de recherche, notamment dans le domaine du \ml : le partage des modèles comme des données destinées à leur entraînement accélère et facilite grandement les développements futurs.
