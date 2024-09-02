@@ -18,8 +18,8 @@ Mon stage au sein de l’équipe d’histoire des sciences du laboratoire SYRTE 
 
 1. Principaux :
 
-- Module `vectorization` pour l'API Discover-Demo : L'intégralité du code se trouve [ici](vectorization_module_api).
-- Module `vectorization` pour l'application AIKON : Une description des développements, accompagnée d'extraits de code, se trouve ici.
+- Module `vectorization` pour l'API Discover-Demo : L'intégralité du code se trouve [ici](vectorization_module_api). Ces développements ont consisté à intégrer le [modèle et les scripts](https://github.com/vayvi/HDV) fournis par Syrine Kalelli.
+- Module `vectorization` pour l'application AIKON : Une description des développements, accompagnée d'extraits de code, se trouve [ici](integration_vectorisation.pdf).
 - Interfaces : Une description des développements, accompagnée de captures d'écran et d'extraits de code, se trouve [ici](dvt_interfaces.pdf).
 
 3. Secondaires :
