@@ -33,7 +33,7 @@ les réseaux de neurones traditionnellement utilisés sont les \textsc{cnn}
 (\emph{Convolutional Neural Network} ou réseau de neurone
 convolutionnel). Ces architectures sont composés de deux types de
 neurones agencés en plusieurs couches~: les neurones de traitement et
-les neurones de mise en commun des sorties, dits de pooling. Ils
+les neurones de mise en commun des sorties, dits de \textit{pooling}. Ils
 procèdent de fait en plusieurs étapes~: l'extraction de \emph{features}
 des données d'entrée (phase de traitement), l'agrégation de ces
 \emph{features} (phase de pooling), puis la résolution du problème (dans
@@ -120,7 +120,7 @@ conception, de fabrication et de maintenance.
 
 L'extraction permet ainsi d'isoler les éléments graphiques pertinents
 (diagrammes ou illustrations) au sein de grands corpus de documents.
-Leur traitement automatisé en batch offre une scalabilité élevée. En
+Leur traitement automatisé en \textit{batch} offre une scalabilité élevée. En
 outre, l'extraction des unités sémantiques de base offre une granularité
 plus fine pour appliquer par la suite de nouveaux traitements (recherche
 de similarité ou vectorisation).
@@ -225,7 +225,7 @@ afin de détecter les relations structurelles sous-jacentes.
 
 \hypertarget{la-vectorisation-les-transformers}{%
 \subsection{La vectorisation~: les
-transformers}\label{la-vectorisation-les-transformers}}
+\emph{transformers}}\label{la-vectorisation-les-transformers}}
 
 L'implémentation de la vectorisation permet d'extraire automatiquement
 l'information géométrique contenue dans les diagrammes dans un format
@@ -239,7 +239,7 @@ résolution. Cette invariabilité est rendue possible par l'utilisation de
 primitives géométriques (formes de base) et de leurs paramètres, plutôt
 que de pixels, pour encoder l'image\footcite{noauthor_tutoriel_2024}. Dans
 le cas présent, trois types de primitives sont utilisés~: les lignes,
-les cercles et les arcs, qui constituent les formes fondamentales des
+cercles et arcs, qui constituent les formes fondamentales des
 diagrammes du corpus \eida.
 
 Chaque \emph{primitive} (forme géométrique élémentaire) est définie par
@@ -265,7 +265,7 @@ La conversion d'images \textit{raster} (matricielles, composées de pixels) de
 dessins en images vectorielles est un problème déjà exploré dans le
 domaine de la recherche en vision artificielle\footcite{egiazarian_deep_2020}. Les
 premières approches séquentielles, impliquant un prétraitement en deux
-étapes (filtrage, simplification et \emph{Edge Detection}\footcite{canny_computational_1986} suivi d'une
+étapes (filtrage, simplification et \emph{edge detection}\footcite{canny_computational_1986} suivi d'une
 détection de primitives\footcite{ref-noauthor_ransac_nodate}, se sont
 révélées efficaces sur des images de haute qualité. Cependant, ces
 méthodes peinent à généraliser à des images plus complexes ou
@@ -310,13 +310,13 @@ problèmes posés par les méthodes classiques\footcite{kalleli_historical_2024}
 
 Les transformers se basent sur une une méthode d'apprentissage de type
 \textit{Seq2Seq} et sur une bipartition structurelle (encodeur-décodeur).
-L'apprentissage \emph{séquence à séquence} est une technique
+L'apprentissage séquence à séquence est une technique
 d'apprentissage profond permettant d'associer une séquence de symboles à
 une autre séquence de symboles sans que cette mise en correspondance
 soit basée sur les symboles en eux-mêmes. Son application par excellence
 est la traduction automatique, mais elle connaît ces dernières années,
 de plus en plus d'application dans le traitement de l'image\footcite{dosovitskiy_image_2021}. Elle
-consiste à donner à la machine un \emph{corpus aligné}, à savoir de
+consiste à donner à la machine un corpus aligné, à savoir de
 nombreux exemples de paires, et d'entraîner un modèle à retrouver
 l'association. Le modèle opère en deux passes. La première, dont le but
 est d'extraires les \emph{features} de l'image d'entrée, est appelée

@@ -26,7 +26,7 @@ générales et basiques, et utilisé pour les besoins quotidiens. Un \gpu
 traitement des éléments graphiques. Il est conçu pour effectuer un grand
 nombre de calculs simples en parallèle grâce à ses nombreux cœurs, ce
 qui le rend extrêmement efficace pour des tâches nécessitant un
-traitement massif et simultané de données. L'utilisation d'un \gpu est
+traitement massif et simultané de données, en particulier la manipulation de matrices ou le calcul vectoriel. L'utilisation d'un \gpu est
 souvent nécessaire pour les tâches d'\ia, notamment en vision
 artificielle, car ces tâches impliquent souvent des opérations de calcul
 intensives et parallélisables. Un \gpu, avec sa capacité à gérer des
@@ -78,7 +78,7 @@ divers, laissant la possibilité de réaliser les traitements soit
 automatiquement via l'\ia, soit manuellement.
 
 Séparer les modèles de vision c'est aussi permettre une bascule vers des
-modèles spécialisés. Les modèle développés dans le cadre du projet sont
+modèles spécialisés. Les modèles développés dans le cadre du projet sont
 disponibles mais peuvent facilement être réentraînés pour correspondre
 spécifiquement aux données de l'utilisateur.rice, prenant en compte les
 besoins de sa recherche.
@@ -167,7 +167,7 @@ scripts/
 ├── run.sh
 \end{verbatim}
 
-Il a été créées plusieurs unités fonctionnelles pouvant inclure leurs vues, \textit{templates}, utilitaires, etc. Cette approche
+Il a été créé plusieurs unités fonctionnelles pouvant inclure leurs vues, \textit{templates}, utilitaires, etc. Cette approche
 permet aux développeur.ses de découper l'application tout en factorisant le code dédié à
 plusieurs tâches, ainsi les modules partagent des \textit{statics}, un fichier
 de configuration global et des fonctions utilitaires.
@@ -188,7 +188,7 @@ souhaités.
 
 Cette architecture s'inscrit dans une stratégie de développement
 applicatif ouverte et évolutive. La division en unités fonctionnelles et
-indépendantes permet d'ajouter ou de supprimer les fonctionnalité
+indépendantes permet d'ajouter ou de supprimer les fonctionnalités
 complémentaires au module de base. Ce cadre de développement modulaire
 garantit que l'application reste adaptable aux exigences évolutives des
 chercheur.ses et des institutions partenaires, la rendant plus robuste et

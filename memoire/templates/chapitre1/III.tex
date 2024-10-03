@@ -42,7 +42,7 @@ Cependant, le traitement par \ia est
 prometteur, pour accélérer l'exploration des corpus et interroger les
 modalités de circulation des savoirs scientifiques, ainsi que le rôle et
 la place de l'image dans la transmission des connaissances. Le but est
-de pouvoir donner du sens aux images en évitant au maximum les étape
+de pouvoir donner du sens aux images en évitant au maximum les étapes
 manuelles d'annotation. Pour ce faire, \eida et \vhs développent des
 méthodes d'apprentissage non ou faiblement supervisées permettant
 d'effectuer des recherches automatiques à grande échelle dans des corpus
@@ -152,8 +152,8 @@ correspondances\footcite{kaoua_image_2021}, centrale dans \vhs,
 qui ne fournit pas le sens \emph{computable} du contenu des images.
 
 \eida adapte des méthodes existantes -- notamment la toute récente
-approche ``analysis-by-synthesis''\footnote{L'approche
-  ``analysis-by-synthesis'' (analyse par synthèse) en vision par
+approche \textit{analysis-by-synthesis}\footnote{L'approche
+  \emph{analysis-by-synthesis} (analyse par synthèse) en vision par
   ordinateur est une méthode qui consiste à générer des prédictions
   d'objets, puis à comparer ces prédictions avec les données visuelles
   réelles pour vérifier leur précision. Cette approche intègre un cycle
@@ -163,8 +163,8 @@ approche ``analysis-by-synthesis''\footnote{L'approche
   une grande gamme de variation dans les données visuelles, elle permet
   ainsi de traiter des problèmes en vision par ordinateur, y compris
   ceux impliquant des données complexes ou ambiguës à l'instar des
-  diagrammes astronomiques. Cette approche s'oppose à la ``sketch
-  segmentation and labelling'' (\cite{ha_neural_2017}) qui gère mal la
+  diagrammes astronomiques. Cette approche s'oppose à la \emph{sketch
+  segmentation and labelling} (\cite{ha_neural_2017}) qui gère mal la
   variabilité et l'ambiguïté des composants. La partie II de ce mémoire
   porte plus spécifiquement sur les méthodes de \cv
   appliquées aux images du projet.} -- pour identifier des primitives
@@ -203,7 +203,7 @@ l'intermédiaire d'une interface graphique, accessible et utilisable par
 les chercheur.ses (dans un premier temps) \footnote{le projet d'une
   interface publique est en préparation}.
 
-Dans ce contexte, le développement en open-source et le partage du code
+Dans ce contexte, le développement en \textit{open-source} et le partage du code
 entre deux projets de recherche offrent plusieurs avantages. Tout
 d'abord, cette approche permet de transcender les frontières
 disciplinaires, favorisant la transversalité et les discussions
@@ -221,7 +221,7 @@ des outils développés, mais permet également d'aller au-delà des
 objectifs initiaux en ouvrant à la continuité des développements.
 L'outil n'a pas seulement de meilleures chances d'être maintenu dans le
 temps, mais aussi d'évoluer, et le code étant ouvert, l'appui de la
-communauté open-source va assurer en partie ces missions. Enfin, éviter
+communauté \textit{open-source} va assurer en partie ces missions. Enfin, éviter
 l'écriture de codes redondants s'inscrit dans une stratégie globale de
 sobriété, reposant sur l'interopérabilité et l'intégration des outils de
 recherche en général, celle-ci gagnant de fait en cohérence et en
@@ -248,7 +248,7 @@ serveur de la Sorbonne.
 La dissociation de l'inférence des modèles de la plateforme
 collaborative répond à deux impératifs fondamentaux. D'une part,
 l'inférence des modèles requiert une puissance de calcul conséquente,
-typiquement fournie par des cartes graphiques \gpu. D'autre part,
+typiquement fournie par des cartes graphiques. D'autre part,
 l'optimisation des ressources englobe le partage du \emph{hardware}.
 L'Observatoire finance donc le \gpu sur lequel tourne l'\api dédiée à
 l'exécution des modèles de vision, laquelle est employée par les deux
@@ -264,7 +264,7 @@ généralisation des modèles de données~? Nous aborderons cette question
 dans la section suivante.
 
 Les difficultés tenant à la coordination des deux équipes sont par
-ailleurs apparues dans la mise en œuvre de l'annotation des similarités dans l'optique de \emph{fine-tuner}\footnote{Voir le \hyperlink{fine-tuner-le-modele}{chapitre 5} sur l'entraînement des modèles} le modèle. La
+ailleurs apparues dans la mise en œuvre de l'annotation des similarités pour le réentraînement du modèle\footnote{Voir le \hyperlink{fine-tuner-le-modele}{chapitre 5} sur l'entraînement des modèles} le modèle. La
 tâche consiste à évaluer à l'aide d'un score les résultats du modèle~:
 pour ce faire, cinq catégories ont été définies par les chercheur.ses de
 \vhs et le système de notation a été implémenté dans la plateforme avec
@@ -435,7 +435,7 @@ l'application \vhs prévoit l'existence des entités 'manuscrit' et
 'imprimé', qui correspondent aux supports représentés dans
 les corpus d'\eida et de \vhs. Ces deux \emph{états matériels} du texte
 sont reliés à une entité plus abstraite~: le \wo.
-S'appuyant sur la définition de 'work' que donne le CIDOC-CRM\footnote{Le
+S'appuyant sur la définition de \wo que donne le CIDOC-CRM\footnote{Le
   modèle conceptuel définit, dans un domaine donné, comment représenter
   la réalité. À ce titre il est indépendant de la manière dont on stocke
   les données informatiquement. Né dans le domaine des musées, CIDOC-CRM

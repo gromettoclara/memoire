@@ -22,11 +22,11 @@ récupérées des fichiers \alto\footnote{L'\ocr et l'\htr produisent un
   obtenir la surbrillance des mots recherchés sur l'image lors d'une
   requête dans le texte.} (la première transcription du texte), et en
 ignorant la mise en page. Ce dernier texte sert à la génération de
-l'objet suivant : le texte analysé par les outils \tal. Chaque élément de
-la sortie de la pipeline ouvre des possibilités d'usages différents des
+l'objet suivant : le texte analysé par les outils \tal. Chaque élément à
+la sortie de la \textit{pipeline} ouvre des possibilités d'usages différents des
 données textuelles. À l'issue de la chaîne de traitement, l'utilisateur
 obtient un fichier \tei destiné principalement à une exploitation
-philologique utilisant des approches de type ``distant-reading''. 
+philologique utilisant des approches de type \textit{distant reading}. 
 
 Pour rassembler les sorties des modèles et des traitements, \xml-\tei semble particulièrement adapté.
 
@@ -42,11 +42,11 @@ Les différents niveaux de description proposés constituent un autre point fort
 
 Enfin, \xml-\tei est le standard pour l'édition et la publication dans le milieu de la recherche\footcite{gabay_gallicorpor_2022}. 
 
-\eida trouve dans le format \svg un équivalent à \xml-\tei dans le domaine graphique, de par sa capacité à agréger les résultats de traitements variés, à assurer l'interopérabilité avec d'autres environnements logiciels et applicatifs, mais aussi son balisage sémantiquement riche. Sa structure basée sur des éléments \xml le rend particulièrement adapté à des traitements informatiques ultérieurs. 
+\eida trouve dans le format \svg un équivalent à \xml-\tei dans le domaine graphique, de par sa capacité à agréger les résultats de traitements variés (vectorisation, reconnaissance des couleurs, de l'épaisseur du trait, transcription des textes), à assurer l'interopérabilité avec d'autres environnements logiciels et applicatifs, mais aussi son balisage sémantiquement riche. Sa structure basée sur des éléments \xml le rend particulièrement adapté à des traitements informatiques ultérieurs. 
 
 Les moyens d'accès à la donnée reposent eux aussi sur des protocoles standards : via des \api comme le service \sru de la \bnf, il est possible d'automatiser à la fois l'encodage des métadonnées et celui du texte issu du document facsimilé numérisé à partir d'une 
 liste d'identifiants \ark. Cependant, cette approche systématique se trouve confrontée à la diversité des sources de données. Si le passage de \alto (issu de la transcription) à \tei est assez facilement généralisable, la génération automatique du
-teiHeader est hautement dépendante de l'origine des documents transcrits. Les
+\texttt{teiHeader} est hautement dépendante de l'origine des documents transcrits. Les
 moyens d'accès et la structure des notices bibliographiques diffèrent d'une institution à
 l'autre, et un script de récupération des métadonnées se voulant hautement modulaire devrait prendre en compte ces spécificités\footcite[p.117]{kristensen_dalto_2022}. Ces remarques montrent les limites de l'idéal de l'interopérabilité universelle : malgré les tentatives de généralisation
 et les nombreux consortium, les bibliothèques et institutions ne

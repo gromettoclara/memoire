@@ -6,9 +6,9 @@ chaque conjecture spécifique doit être prévue et son traitement
 clairement formulé. Si le code produit des erreurs, il doit être modifié
 par le.a développeur.se. La deuxième approche consiste à donner au programme
 la capacité de se modifier lui-même, sans que cette modification soit
-explicitement rédigée~; le programme programme. L'expert métier doit
-annoter des exemples et un seul algorithme (d'apprentissage) suffit pour
-traiter de multiples cas du réel. En cas d'erreur, il faut agir non plus
+explicitement rédigée. L'expert métier doit coder l'architecture du modèle et
+annoter des exemples ; puis un seul algorithme (d'apprentissage) suffit pour
+traiter de multiples cas réels. En cas d'erreur de l'algorithme, il faut agir non plus
 sur le programme mais sur les exemples d'apprentissage. L'objectif est
 d'apprendre à généraliser pour prédire sur des exemples non vus pendant
 l'apprentissage\footcite[p.7]{chollet_apprentissage_2020}.
@@ -56,8 +56,8 @@ mesure, adaptées spécifiquement aux problèmes à résoudre. Cette
 approche, bien que permettant une optimisation fine des performances,
 est souvent coûteuse en temps et en ressources. Ces dernières années,
 l'émergence de modèles pré-entraînés sur des jeux de données massifs a
-ouvert de nouvelles perspectives. Ces modèles off-the-shelf (ou
-pre-trained models), déjà qualitatifs, demandent cependant à être spécialisés sur des corpus. Le \textit{fine-tuning}
+ouvert de nouvelles perspectives. Ces modèles \textit{off-the-shelf} (ou
+\textit{pre-trained models}), déjà qualitatifs, demandent cependant à être spécialisés sur des corpus. Le \textit{fine-tuning}
 consiste alors à adapter ces modèles à une tâche spécifique en les
 entraînant sur un jeu de données plus petit et plus pertinent.
 
@@ -69,7 +69,7 @@ non spécialistes, ce qui peut être un inconvénient là où la transparence
 et l'explicabilité sont importantes, typiquement pour des projets
 transversaux caractéristiques des humanités numériques. D'autant que la
 collaboration entre les chercheur.ses spécialistes des sources et les
-ingénieur.es \textit{data-scientists} est essentielle~: les deux pôles doivent
+ingénieur.es \textit{data scientists} est essentielle~: les deux pôles doivent
 collaborer pour entraîner les modèles et les rendre performants sur les
 données spécifiques. C'est pourquoi l'optimisation des modèles de vision
 ne s'obtient pas sans un effort du côté des équipes disciplinaires, qui

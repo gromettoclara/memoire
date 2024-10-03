@@ -16,7 +16,7 @@ chronophage et fastidieuse. Le recours aux données synthétique répond,
 mais en partie seulement, à ces problématiques.
 
 \hypertarget{datasets-synthetiques}{%
-\subsection{\emph{datasets} synthétiques}\label{datasets-synthetiques}}
+\subsection{\emph{Datasets} synthétiques}\label{datasets-synthetiques}}
 
 Les \textit{datasets} synthétiques sont générés par des algorithmes ou des
 méthodes de simulation pour imiter des données réelles, sans être
@@ -30,9 +30,9 @@ caractéristiques des objets d'intérêt du projet, et surtout étiquetés
 automatiquement, sans recourir à l'annotation manuelle.
 
 Ces données synthétiques sont assez ressemblantes et complexes pour être
-exploitées. Par exemple, docExtractor est un modèle off-the-shell (au
+exploitées. Par exemple, docExtractor est un modèle \textit{off-the-shell} (au
 même titre que \yolo) envisagé dans le cadre de la tâche d'extraction des
-diagrammes, et qui se veut sépcifique aux données historiques, car il
+diagrammes, et qui se veut spécifique aux données historiques, car il
 est entraîné sur des données produites par un générateur de documents
 historiques synthétiques~: SynDoc\footcite{monnier_docextractor_2020}. SynDoc
 génère des images de manière aléatoire en combinant des éléments
@@ -42,7 +42,7 @@ défini (constitué de 177 images de pages, 15 contextes, plus de 8000
 lettre aléatoire avec 91 fonts possibles, et des dessins, schémas et
 textes tirés d'articles aléatoires sur Wikipedia, avec plus de 400
 fonts). Les différents éléments s'agencent, intégrant sur le fond
-images, texte et bruit, offrant des combinasons et des mises en pages
+images, texte et bruit, offrant des combinaisons et des mises en pages
 assez complexes. Chaque élément de contenu est pré-annoté, éliminant
 ainsi le besoin d'annotations manuelles pour ces pages.
 
@@ -62,8 +62,8 @@ d'entraînement choisit aléatoirement un arrière-plan, y ajoute des mots,
 des nombres et des glyphes puis crée artificiellement un diagramme en
 insérant des segments, des cercles et des arcs. Le script est conçu pour
 que ces diagrammes aient une forte probabilité de présenter des formes
-très caractéristiques comme les cercles concentriques et tangents, les
-lignes parallèles et les arcs connectés, afin de simuler les structures
+très caractéristiques comme les cercles tangents,
+lignes parallèles et arcs connectés, afin de simuler les structures
 typiques. Les primitives sont dessinées avec des
 variations aléatoires d'opacité, de largeur et de couleur. Les cercles
 peuvent être remplis ou vides. Enfin, du bruit est ajouté en appliquant
@@ -118,9 +118,9 @@ du texte et des illustration côté à côte, d'autant qu'il intègre des
 outils de traitement du texte (notamment pour la segmentation des
 lignes)\footnote{\eida envisage l'implémentation d'un outil d'extraction
   et transcription des labels et des textes qui entourent les diagrammes}.
-Pourtant, sans fine-tuning sur des données réelles, il présente des
+Pourtant, sans \textit{fine-tuning} sur des données réelles, il présente des
 performances équivalentes à celles de \yolov\footcite[p.45]{norindr_traitement_2023}. Cela
-souligne que même les modèles off-the-shelf entraînés sur un corpus
+souligne que même les modèles \textit{off-the-shelf} entraînés sur un corpus
 assez spécifique et complexe, mais synthétique, ne dispense pas d'un
 entraînement sur des données réelles, au même titre que les modèles très
 généralistes comme \yolov.
@@ -222,15 +222,15 @@ prises entre les chercheur.ses et les ingénieur.es peuvent être l'objet d'une
 documentation ou d'ateliers d'annotation.
 
 \hypertarget{loeil-de-la-machine-avantages-et-limites}{%
-\subsection{L'oeil de la machine~: avantages et
+\subsection{L'œil de la machine~: avantages et
 limites}\label{loeil-de-la-machine-avantages-et-limites}}
 
 Bien qu'il soit possible d'optimiser les performances d'un modèle
 d'apprentissage automatique en l'entraînant sur un ensemble de données
 spécifique, son interprétation des données reste limitée car
 fondamentalement binaire, ce qui le rend parfois déficient pour la
-recherche en histoire. Ainsi, il gèrera difficilement les cas limites et
-ambigüs. La décision d'inclure ou d'exclure ces cas particuliers de
+recherche en histoire. Ainsi, il gérera difficilement les cas limites et
+ambigus. La décision d'inclure ou d'exclure ces cas particuliers de
 l'ensemble d'entraînement implique un arbitrage délicat. D'un côté, une
 inclusion trop restrictive peut compromettre les capacités de
 généralisation du modèle, c'est-à-dire sa capacité à s'adapter à de

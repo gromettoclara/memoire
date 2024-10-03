@@ -1,4 +1,4 @@
-Partir d'un modèle de vision généraliste et le \textit{fine-tuner} est une
+Partir d'un modèle de vision généraliste et l'ajuster est une
 pratique courante pour adapter des architectures de réseaux de neurones
 pré-entraînés à des tâches spécifiques. Cette approche permet de
 bénéficier des capacités de transfert d'apprentissage du
@@ -8,7 +8,7 @@ le temps et les ressources nécessaires (humaines comme en données).
 
 \hypertarget{modeles-off-the-shelf}{%
 \subsection{Utilisation de modèles
-off-the-shelf}\label{modeles-off-the-shelf}}
+\emph{off-the-shelf}}\label{modeles-off-the-shelf}}
 
 Les modèles de vision \textit{off-the-shelf} comme ResNet, VGG, Inception ou
 encore \yolov, ont déjà été entrainés sur un ensemble de données
@@ -20,10 +20,10 @@ architecture pré-formée, ne demande pas d'expertise trop poussée en
 Pour l'entraînement initial, \yolov utilise MS COCO\footcite{noauthor_coco_nodate}, vaste jeu
 d'images couvrant environ 1.5 million d'instances d'objets annotées
 selon 80 catégories relevant du quotidien (comme \emph{personne},
-\emph{chaise} ou \emph{voiture}) et 91 catégories dites ``stuff'', qui
+\emph{chaise} ou \emph{voiture}) et 91 catégories dites \textit{stuff}, qui
 se réfèrent à des éléments de fond amorphes tels que le ciel ou l'herbe.
 MS COCO est largement utilisé dans diverses recherches et compétitions
-dans les domaines de base de la vision artificiel, tels que la détection
+dans les domaines de base de la vision artificielle, tels que la détection
 d'objets, la segmentation d'instances, la génération de légendes\ldots{}
 Cet ensemble de données se distingue par ses annotations détaillées et
 la complexité des scènes représentées, offrant ainsi une référence
@@ -48,7 +48,7 @@ définis par le projet WorldNet\footcite{noauthor_wordnet_nodate}.
 
 Dans le domaine de la vision artificielle, il est très courant
 d'utiliser ces modèle pré-entraînés sur un grand jeu de données peu
-spécifique (qui en plus bénéficient de solutions d'implantation
+spécifique (qui en plus bénéficient de solutions d'implémentation
 simplifiées), puis de l'affiner à partir d'un jeu de données plus petit
 et très spécifique au projet. Le modèle entraîné sur le jeu de données
 de base s'avère en effet trop généraliste~: il apprend des
@@ -72,7 +72,7 @@ derniers de créer ou d'entraîner de zéro des réseaux de neurones ou des
 modèles de détections. La détection étant, en effet, une tâche de base
 de la vision par ordinateur,{[}\ldots{]} il est peu pertinent d'allouer
 des ressources pour reproduire des techniques déjà appliquées par de
-nombreux projets, et les outils off-the-shelf offrent donc la liberté
+nombreux projets, et les outils \textit{off-the-shelf} offrent donc la liberté
 d'envisager la vision artificielle comme élément d'une chaîne de
 traitement des sources en allégeant les besoins et ressources --
 notamment humains et temporels que demandent le développement et
@@ -80,19 +80,19 @@ l'application de ces techniques.''\footcite[p.49]{norindr_traitement_2023}
                       \end{kwote}       
 
 \hypertarget{fine-tuner-le-modele}{%
-\subsection{fine-tuner le modèle}\label{fine-tuner-le-modele}}
+\subsection{Ajuster le modèle}\label{fine-tuner-le-modele}}
 
 Les modèles très généralistes entraînés sur de vastes jeux de données
 extrêmement diversifiés (à l'image de \yolov), ne satisfont pas les
 exigences des projets de recherche \eida et \vhs~: ils nécessitent un
-\emph{fine-tuning} ou ré-entraînement. Le but du fine-tunning est de
+\emph{fine-tuning} ou ré-entraînement. Le but du réentraînement est de
 spécialiser le modèle sur les données caractéristiques. Un modèle qui a
 déjà connu un entraînement initial est performant sur une tâche donnée,
 il s'agit alors d'exploiter les représentations apprises précédemment et
 de spécialiser le modèle sur des données plus spécifiques et un contexte
 précis. Cette démarche permet de réduire la quantité de données
 nécessaire pour l'obtention d'un modèle à la fois pertinent et
-performant.Les modèles off-the-shelf comme \yolov prévoient dans leur
+performant. Les modèles \textit{off-the-shelf} comme \yolov prévoient dans leur
 implémentation un \textit{workflow} pour l'entraînement. La spécialisation des
 dernières couches est ainsi simplifiée par la mise à disposition
 d'outils permettant d'effectuer cette étape en écrivant peu de code. Il
@@ -158,7 +158,7 @@ Le \textit{data-scientist} peut activer deux leviers lors d'un entraînement pou
 améliorer le modèle qui en sortira~: la donnée en elle-même et le nombre
 d'itération sur les données.
 
-Un modèle est dit \emph{sur-appris} (ou \emph{overfitted}) lorsqu'il
+Un modèle est dit sur-appris (ou \emph{overfitted}) lorsqu'il
 capture le bruit présent dans les données d'entraînement, en plus des
 \textit{patterns} pertinents pour l'application.
 
@@ -201,7 +201,7 @@ d'entraînement défini seront capables de généraliser à l'ensemble des
 données d'intérêt. Pour ce faire, il est important de mettre en place un
 cadre expérimental rigoureux qui permette d'évaluer les modèles en
 évitant, tout particulièrement, le biais du sur-apprentissage. Sans
-anticiper l'overffiting, les développeur.ses peuvent entraîner et déployer
+anticiper l'\textit{overfitting}, les développeur.ses peuvent entraîner et déployer
 un modèle hautement précis à première vue qui offrira en réalité des
 performances amoindries en production sur de nouvelles
 données\footcite[p.32]{azencott_introduction_2022}.
@@ -216,7 +216,7 @@ modèle parmi plusieurs candidats issus des \emph{N} itérations. Le
 modèle final sélectionné est celui qui a obtenu les meilleures
 performances sur le jeu de validation~: arrêter l'entraînement quand la
 mise à jour des paramètres n'améliore plus les performances sur le jeu
-de valisation vise à prévenir l'overfitting. Souvent nommé
+de valisation vise à prévenir l'\textit{overfitting}. Souvent nommé
 \emph{best.pt}, le meilleur modèle n'est donc pas nécessairement celui
 obtenu à l'issue de la dernière époque (\emph{last.pt}).
 
@@ -225,15 +225,15 @@ obtenu à l'issue de la dernière époque (\emph{last.pt}).
 Pour estimer la performance en généralisation d'un modèle, il est
 essentiel de l'évaluer sur des données qui n'ont été utilisées ni pour
 l'entraînement, ni pour la sélection de ce modèle, d'où la prévision du
-jeu de test (ou ``test set''). Il est utilisé pour évaluer les
+jeu de test (ou \textit{test set}). Il est utilisé pour évaluer les
 performance du modèle sélectionné sur des données inconnues, autrement
 dit pour évaluer ses capacités de généralisation grâce à des métriques
 diverses. Parmi ces dernières, le \emph{recall} désigne la proportion
 d'instances (diagrammes) détectées. La \emph{précision} correspond au
-ratio de prédiction positive par rapport au nombre de prédiction total.
+ratio de prédiction positive par rapport au nombre de prédictions total.
 Ces métriques demandent à être interprétées.
 Dans le cadre de la détection d'objets dans \eida (extraction des
-diagrammes dans les pages de manuscrit) le recall est plus important que
+diagrammes dans les pages de manuscrit) le \textit{recall} est plus important que
 la précision. L'enjeu réside dans l'ajustement entre le retour de tous
 les diagrammes, en acceptant un certain nombre de faux positifs, et
 l'absence de faux positifs, mais avec le risque de manquer certains
@@ -279,7 +279,7 @@ extraits et en étendant leurs marges, générant ainsi une \textit{groundtruth}
 artificielle.
 
 Ces données synthétique peuvent en effet s'avérer cruciales pour
-l'entraînement des modèles, afin d'éviter le \textit{sur-apprentissage}, car de
+l'entraînement des modèles, afin d'éviter le sur-apprentissage, car de
 manière générale, prévenir l'\textit{overfitting} implique très souvent
 d'augmenter le volume de donnée~; volume qui fait défaut dans le cas des
 données historiques. C'est ce que nous détaillons ci-après.

@@ -1,4 +1,4 @@
-\iiif (International Image Interoperability Framework) a révolutionné les
+\iiif (\textit{International Image Interoperability Framework}) a révolutionné les
 approches pour la diffusion et la manipulation des images numériques.
 
 Née au tournant des années 2010 sous l'impulsion de l'Université de
@@ -29,7 +29,7 @@ Le cadre défini par le consortium \iiif repose sur plusieurs \apis
 l'\api image et l'\api présentation.
 
 L'\api Image est un ``contrat'' entre un serveur d'images et un client de
-visualisation, un mécanisme simple de fourniture d'images numériques en
+visualisation, un mécanisme simple de mise à disposition d'images numériques en
 ligne, y compris en haute résolution, et permettant le zoom profond.
 Elle vise à rendre plus cohérente la diffusion en ligne des
 numérisations et faciliter leur exploitation dans différents
@@ -40,7 +40,7 @@ implémentée sans l'\api Présentation.
 
 Elle apporte une syntaxe d'\URL standard et facilite la mise en cache
 pour accéder à une image et la manipuler à distance (avec la possibilité
-de paramétrer l'\URL). Elle transme ainsi des informations techniques sur
+de paramétrer l'\URL). Elle transmet ainsi des informations techniques sur
 l'image pour qu'un visualiseur puisse l'afficher dans différents
 contextes~: en effet cette syntaxe d'\URL concerne deux types de requêtes
 sur une même image~: la requête de l'image elle-même (pixels) et celle
@@ -48,8 +48,8 @@ d'information sur l'image (\json).
 
 Le modèle d'\URL\footnote{\{scheme\}://\{server\}\{/prefix\}/\{identifier\}/\{region\}/\{size\}/\{rotation\}/\{quality\}.\{format\}}
 permet à un client d'appeler et manipuler une image selon des paramètres
-de région (region), de taille (size), de rotation (rotation), de qualité
-(quality) et de format (format). Grâce à cette \URL paramétrable, à partir
+de région (\textit{region}), de taille (\textit{size}), de rotation (\textit{rotation}), de qualité
+(\textit{quality}) et de format (\textit{format}). Grâce à cette \URL paramétrable, à partir
 d'un même document mis en ligne, il est possible de créer plusieurs
 dérivés d'une même image. Par exemple il est possible de demander sa
 version pleine taille, ou simplement une portion de celle-ci
@@ -111,9 +111,9 @@ contenus.
 
 Les contenus, servent à remplir un canevas, il s'agit typiquement du
 contenu visuel identifié grâce aux \URLs définis par l'\api image.
-L'association entre un Contenu et un canevas se réalise à travers une
+L'association entre un \texttt{content} et un \texttt{canvas} se réalise à travers une
 Annotation, qui peut soit occuper la totalité de l'espace du Canevas,
-soit cibler une zone spécifique de celui-ci. Un canevas peut donc aussi
+soit cibler une zone spécifique de celui-ci. Un \texttt{canvas} peut donc aussi
 aussi être la cible d'autres types d'annotations (transcription,
 commentaires, tags etc.) ciblant des zones particulières au sein de cet
 espace de coordonnées.
@@ -121,7 +121,7 @@ espace de coordonnées.
 Cette structure de données permet donc l'alignement des annotations et
 des images, y compris si l'utilisateur.rice producteur des annotations est
 différent du créateur du \man~; ce qui facilite la collaboration de plusieurs acteurs autour d'un \man produit
-par une institutions.
+par une institution.
 
 Les annotations deviennent à ce titre un élément important et
 opérationnel dans le processus de localisation et d'indexation des
@@ -144,22 +144,22 @@ IIIF}\label{avantages-et-limites-du-cadre-iiif}}
 
 \emph{Interopérabilité et ouverture de la données}
 
-\iiif garantit l'accessibilté, favorisant la collaboration et l'échange
+\iiif garantit l'accessibilité, favorisant la collaboration et l'échange
 entre institutions culturelles, universitaires et de recherche,
-participant à la visibilté des collections numériques des institutions.
+participant à la visibilité des collections numériques des institutions.
 En terme d'interopérabilité, \iiif élimine les barrières techniques entre
-différentes plates-formes et systèmes, permettant une intégration
+différentes plateformes et systèmes, permettant une intégration
 transparente des collections d'images. Le cadre et ses protocoles
 associés facilitent la recherche et l'analyse d'images en permettant aux
 chercheur.ses d'agréger des données provenant de multiples sources et de
 les examiner dans un environnement unifié, notamment avec des outils
-permettant l'annotation collaborative des images, tels que
+permettant l'annotation collaborative des images, grâce à un visualiseur comme
 Mirador\footnote{https://github.com/ProjectMirador/mirador} ou Universal
-Viewer\footnote{https://github.com/UniversalViewer/universalviewer}, ou
-\sas\footnote{\sas est un serveur d'annotations
+Viewer\footnote{https://github.com/UniversalViewer/universalviewer} et à un serveur d'annotations
+comme \sas\footnote{\sas est un serveur d'annotations
   \iiif. Il est couplé à la version 2 de Mirador pour la partie cliente
   dédiée à la visualisation des images et à la création des annotations.
-  La partie serveur sert à stocker les annotations de façon persistente.
+  La partie serveur sert à stocker les annotations de façon persistante.
   (https://github.com/glenrobson/SimpleAnnotationServer)}.
 
 \emph{Légèreté}
@@ -218,23 +218,23 @@ manifestes.''\footcite[p.25]{norindr_traitement_2023}
 \end{kwote}   
 
 À titre d'exemple, alors que le modèle de référence préconise
-l'utilisation de la clé \textit{Canvas} pour regrouper les images
+l'utilisation de la clé \textit{canvases} pour regrouper les images
 (Fig. \ref{fig:dresde}), certaines institutions, telles que la
 bibliothèque universitaire de Yale (Fig. \ref{fig:yale}),
-utilisent \textit{Items} à la place, modifiant alors l'arborescence du \man\footcite[p.25]{norindr_traitement_2023}.
+utilisent \textit{items} à la place, modifiant alors l'arborescence du \man\footcite[p.25]{norindr_traitement_2023}.
 
           \begin{figure}[H]
           \begin{center}
           \includegraphics[height=6cm]{figues/dresde_manifest.png}
           \end{center}
-          \caption{Usage de 'Canvas' dans un \man \iiif par Bibliothèque Universitaire de Dresde.}
+          \caption{Usage de \textit{canvases} dans un \man \iiif par Bibliothèque Universitaire de Dresde.}
           \label{fig:dresde} \end{figure}
 
           \begin{figure}[H]
           \begin{center}
           \includegraphics[height=6cm]{figues/yale_manifest.png}
           \end{center}
-          \caption{Usage de 'Items' dans un \man \iiif par Bibliothèque Universitaire de Yale.}
+          \caption{Usage de \textit{items} dans un \man \iiif par Bibliothèque Universitaire de Yale.}
           \label{fig:yale} \end{figure}
 
 Le fichier reste lisible dans un visualiseur, mais la structure du
@@ -286,7 +286,7 @@ spécificités locales des pratiques institutionnelles dans la mise en
 \subsection{Particularité de l'utilisation de IIIF au sein de la
 plateforme}\label{particularite-de-utilisation-de-iiif-au-sein-de-la-plateforme}}
 
-Chaque record de \digit dispose d'un \man \iiif spécifique à \eida,
+Chaque \textit{record} de \digit dispose d'un \man \iiif spécifique à \eida,
 afin de remédier à la variabilité de structure des \mans~: à
 la soumission du formulaire d'enregistrement d'un \wit ou d'une \ser, si une \digit a été
 ajoutée, les fichiers (déposés au format \textsc{pdf} ou \jpeg, ou bien récupérés à
@@ -296,12 +296,12 @@ post-traités et renommés. Une vue génère le \man de la
 annotations.
 
 L'extraction manuelle ou automatiques de régions d'image entraîne la
-création d'une entité \textit{Regions}, qui dispose de deux \mans pour
+création d'une entité \texttt{Regions}, qui dispose de deux \mans pour
 faire cohabiter différentes extractions (automatiques et manuelles). Les
 annotations issues de l'extraction automatique sont indexées sur un
-\man ``auto''. Elles sont inscrites ``en dur'' dans le
+\man \textit{auto}. Elles sont inscrites \textit{en dur} dans le
 \man, ne sont pas indexées dans \sas et ne peuvent pas être
-modifiées depuis Mirador. Un \man ``v2'' est utilisé pour les
+modifiées depuis Mirador. Un \man \textit{v2} est utilisé pour les
 annotations réalisées avec \sas, donc effectuées manuellement, ou issues
 de la correction des annotations automatiques.
 

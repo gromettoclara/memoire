@@ -143,6 +143,7 @@
 \newacronym{dom}{\textsc{dom}}{\emph{Document Object Model}}
 \newacronym{eida}{\textsc{eida}}{\emph{Editing and analysing hIstorical astronomical Diagrams with Artificial intelligence}}
 \newacronym{fair}{\textsc{fair}}{\emph{Findable Accessible Interoperable Reusable}}
+\newacronym{gbs}{\textsc{gbs}}{\emph{Google Books Search}}
 \newacronym{gpu}{\textsc{gpu}}{\emph{Graphics Processing Unit}}
 \newacronym{hn}{\textsc{hn}}{\emph{Humanités Numériques}}
 \newacronym{html}{\textsc{html}}{\emph{HyperText Markup Language}}
@@ -156,6 +157,7 @@
 \newacronym{json}{\textsc{json}}{\emph{JavaScript Object Notation}}
 \newacronym{mpa}{\textsc{mpa}}{\emph{Multiple Page Application}}
 \newacronym{ocr}{\textsc{ocr}}{\emph{Optical Character Recognition}}
+\newacronym{odd}{\textsc{oca}}{\emph{Open Content Alliance}}
 \newacronym{odd}{\textsc{odd}}{\emph{One Document Does it all}}
 \newacronym{png}{\textsc{png}}{\emph{Portable Network Graphics}}
 \newacronym{ransac}{\textsc{ransac}}{\emph{RANdom SAmple Consensus}}
@@ -190,15 +192,15 @@
 \newcommand{\syrte}{\gls{syrte}\xspace}
 \newcommand{\tei}{\gls{tei}\xspace}
 \newcommand{\iiif}{\gls{IIIF}\xspace}
-\newcommand{\wit}{\emph{Witness}\xspace}
-\newcommand{\wo}{\emph{Work}\xspace}
-\newcommand{\ser}{\emph{Serie}\xspace}
-\newcommand{\man}{\emph{Manifest}\xspace}
-\newcommand{\wits}{\emph{Witnesses}\xspace}
-\newcommand{\wos}{\emph{Works}\xspace}
-\newcommand{\sers}{\emph{Series}\xspace}
-\newcommand{\digit}{\emph{Digitization}\xspace}
-\newcommand{\digits}{\emph{Digitizations}\xspace}
+\newcommand{\wit}{\texttt{Witness}\xspace}
+\newcommand{\wo}{\texttt{Work}\xspace}
+\newcommand{\ser}{\texttt{Serie}\xspace}
+\newcommand{\man}{\emph{Manifest}\xspace} % ????? 
+\newcommand{\wits}{\texttt{Witnesses}\xspace}
+\newcommand{\wos}{\texttt{Works}\xspace}
+\newcommand{\sers}{\texttt{Series}\xspace}
+\newcommand{\digit}{\texttt{Digitization}\xspace}
+\newcommand{\digits}{\texttt{Digitizations}\xspace}
 \newcommand{\mans}{\emph{Manifests}\xspace}
 \newcommand{\cpu}{\gls{cpu}\xspace}
 \newcommand{\cv}{\emph{computer vision}\xspace}
@@ -209,6 +211,8 @@
 \newcommand{\htr}{\gls{htr}\xspace}
 \newcommand{\gpu}{\gls{gpu}\xspace}
 \newcommand{\http}{\gls{http}\xspace}
+\newcommand{\gbs}{\gls{gbs}\xspace}
+\newcommand{\oca}{\gls{oca}\xspace}
 \newcommand{\ia}{\gls{ia}\xspace}
 \newcommand{\imagine}{\gls{imagine}\xspace}
 \newcommand{\iscd}{\gls{iscd}\xspace}
@@ -253,14 +257,14 @@
 \newcommand{\ransac}{\gls{ransac}\xspace}
 \newcommand{\CITE}{\gls{cite}\xspace}
 \newcommand{\sas}{\gls{sas}\xspace}
-\newcommand{\graphical}{\emph{Graphical Element}\xspace}
-\newcommand{\graphicals}{\emph{Graphical Elements}\xspace}
-\newcommand{\tr}{\emph{Treatment}\xspace}
-\newcommand{\trs}{\emph{Treatments}\xspace}
-\newcommand{\ds}{\emph{Document Set}\xspace}
-\newcommand{\rs}{\emph{Region Set}\xspace}
-\newcommand{\dss}{\emph{Document Sets}\xspace}
-\newcommand{\rss}{\emph{Region Sets}\xspace}
+\newcommand{\graphical}{\texttt{Graphical Element}\xspace}
+\newcommand{\graphicals}{\texttt{Graphical Elements}\xspace}
+\newcommand{\tr}{\texttt{Treatment}\xspace}
+\newcommand{\trs}{\texttt{Treatments}\xspace}
+\newcommand{\ds}{\texttt{Document Set}\xspace}
+\newcommand{\rs}{\texttt{Region Set}\xspace}
+\newcommand{\dss}{\texttt{Document Sets}\xspace}
+\newcommand{\rss}{\texttt{Region Sets}\xspace}
 \def\cdt{\kern-0.5pt\ensuremath\cdot\kern-0.5pt}
 
 % Pour retirer le titre courant d'une page vide avant un chapitre
@@ -312,9 +316,7 @@
     \chapterNo{Remerciements}
     \addcontentsline{toc}{chapter}{Remerciements}
  
- Avant tout, je tiens à exprimer ma profonde gratitude à toutes les personnes ayant contribué à faire de ce stage une expérience profondément enrichissante sur le plan intellectuel comme personnel. 
- 
- Avant tout, je tiens à remercier ma directrice de mémoire Ségolène Albouy et ma tutrice Jade Norindr pour leur soutien, leurs conseils avisés, leur patience, leur disponibilité et leur générosité. Je me sens extrêmement chanceuse d'avoir pu profiter de leur expertise et découvrir leurs qualités humaines, elles forcent l'admiration. Un grand merci à Matthieu Husson ainsi qu'à tous les chercheur.ses d'\eida : Scott, Divna, Samuel, Chen\ldots Merci à Éleonora pour son délicieux cours de philologie. J'ai trouvé à l'Observatoire un environnement valorisant et encourageant, ce qui a été extrêmement précieux.
+ Avant tout, je tiens à exprimer ma profonde gratitude à toutes les personnes ayant contribué à faire de ce stage une expérience profondément enrichissante sur le plan intellectuel comme personnel. Merci à ma directrice de mémoire Ségolène Albouy et ma tutrice Jade Norindr pour leur soutien, leurs conseils avisés, leur patience, leur disponibilité et leur générosité. Je me sens extrêmement chanceuse d'avoir pu profiter de leur expertise et découvrir leurs qualités humaines, elles forcent l'admiration. Un grand merci à Matthieu Husson ainsi qu'à tous les chercheur.ses d'\eida : Scott, Divna, Samuel, Chen\ldots Merci à Éleonora pour son délicieux cours de philologie. J'ai trouvé à l'Observatoire un environnement valorisant et encourageant, ce qui a été extrêmement précieux.
  
 Merci à tous les étudiants de la promotion 2024 du master TNAH pour leur soutien et leur amitié. L'émulation intellectuelle qui règne au sein de notre groupe a été un moteur essentiel et a rendu cette année de master particulièrement stimulante. 
  
@@ -576,7 +578,7 @@ au développement d'une plateforme qui, tout en fournissant un cadre
 méthodologique solide, offre une grande souplesse d'utilisation,
 permettant aux chercheur.ses de personnaliser leurs \textit{workflows} en fonction de
 leurs besoins spécifiques. En somme, comment concevoir un véritable
-Système d'Information extensif capable de soutenir l'ensemble du
+système d'information extensif capable de soutenir l'ensemble du
 processus de traitement des illustrations présentes dans les documents
 historiques, de l'acquisition des données à leur exploitation
 scientifique.
@@ -585,7 +587,7 @@ scientifique.
 
 \chapter*{Introduction partielle}
 
-La modularité des projet \eida/\vhs repose en grande partie sur la
+La modularité des projet \eida / \vhs repose en grande partie sur la
 construction de la plateforme web \aikon~: outil complet pour la
 recherche sur des documents historiques, permettant leur import,
 leur stockage, leur analyse (par différentes méthodes) puis leur visualisation. Le but
@@ -670,13 +672,13 @@ abandonnés.
 Un outil qui fonctionne aujourd'hui peut rapidement devenir obsolète ou
 inadapté si sa conception n'intègre pas une capacité d'évolution. En
 construisant un \si modulaire, il devient possible de prolonger la vie de
-l'outil. Dans une optique de sobriété et dans la philosophie de l'open-source, cette démarche a aussi pour objectif d'éviter à de multiples
+l'outil. Dans une optique de sobriété et dans la philosophie de l'\textit{open source}, cette démarche a aussi pour objectif d'éviter à de multiples
 projets le développement d'outils aux fonctionnalités similaires.
 
 \emph{Démocratisation des outils de \dl}
 
 L'ouverture des données historiques ou patrimoniales, mais aussi des
-technologies qui permettent de les manipuler (outils low-tech,
+technologies qui permettent de les manipuler (outils \textit{low tech},
 publication du code, mais aussi et notamment outils d'\ia) produisent de
 riche dynamiques de collaboration. Si l'utilisation de la vision
 artificielle tend à se généraliser dans le traitement de ces données,
@@ -686,12 +688,12 @@ temporelles, financières et humaines nécessaires. Ils peuvent alors profiter d
 soutien d'une communauté et de l'existence d'outils génériques
 spécialisables, réduisant ainsi les coûts de développement. En effet, les
 algorithmes généralistes ne sont généralement pas adaptés aux données
-historiques et sont donc difficiles à utiliser off-the-shelf sans
+historiques et sont donc difficiles à utiliser \textit{off-the-shelf} sans
 ajustement. \aikon inclue donc des moyens d'export dans des formats
 divers, pour créer des vérités de terrain et envisager l'entraînement des modèles, suivant l'exemple de e-Scriptorium.
 
 Il y a donc un enjeu à penser des outils standards, en réfléchissant
-techniquement à des solutions maintenables sur le long termes grâce à
+techniquement à des solutions maintenables sur le long terme grâce à
 des formats interopérables et des infrastructures flexibles, pour
 permettre non seulement la reproductibilité des résultats mais aussi une
 réutilisation des données produites dans des contextes divers.        

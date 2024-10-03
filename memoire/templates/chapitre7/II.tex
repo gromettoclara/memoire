@@ -25,7 +25,7 @@ gestion des données, le lancement des traitements, la visualisation et
 la correction des résultats.
 
 L'extraction automatique détecte les zones d'intérêt dans les
-numérisations et les indexe dans le système \sas. La tache se déclenchait
+numérisations et les indexe dans le système \sas. La tâche se déclenchait
 initialement systématiquement lors de l'enregistrement du témoin dans la
 base de données (la méthode de classe qui permettait l'enregistrement du
 \wit lançait un \emph{thread} en même temps). Pour plus de souplesse
@@ -145,11 +145,11 @@ Le système est ainsi conçu pour être évolutif. Les utilisateur.rices peuvent
 envisager d'étendre ses capacités en y intégrant de nouveaux modules.
 Parmi les fonctionnalités potentielles, on peut citer~: des outils
 d'édition des diagrammes (ce qui intéresse spécifiquement \eida), des
-algorithmes de classification et de clustering, un modèle de
-reconnaissance de filigranes, ou encore l'intégration d'une pipeline de
+algorithmes de classification et de \textit{clustering}, un modèle de
+reconnaissance de filigranes, ou encore l'intégration d'une \textit{pipeline} de
 transcription de textes comme e-Scriptorium.
 
-La conception modulaire du système permet de configurer des pipelines de
+La conception modulaire du système permet de configurer des \textit{pipelines} de
 traitement personnalisés. Chaque module peut être activé ou désactivé
 indépendamment des autres. Les traitements peuvent être combinés selon
 les besoins spécifiques. Par exemple, le calcul de similarité et la
@@ -162,8 +162,8 @@ annotés manuellement.
 détaillé}{Module Similarité~: workflow détaillé}}\label{module-similarite-workflow-detaille}}
 
 Le module \textit{similarity retrieval} inclut le calcul de scores de
-similarité selon différentes méthodes (\textit{cosine distance}, Segswap, etc.)\footnote{Voir le \hyperlink{similarite}{chapitre IV, 2.2}} et la catégorisation de ces similarités (exact match,
-partial, personnal, etc.)\footnote{Voir le \hyperlink{chapitre-8-interfaces}{chapitre suivant}.}. La
+similarité selon différentes méthodes (\textit{cosine distance}, Segswap, etc.)\footnote{Voir le \hyperlink{similarite}{chapitre IV, 2.2}} et la catégorisation de ces similarités (\textit{exact match},
+\textit{partial}, \textit{personnal}, etc.)\footnote{Voir le \hyperlink{chapitre-8-interfaces}{chapitre suivant}.}. La
 recherche de similarité ne fonctionne que sur les images de diagrammes
 déjà extraites, identifiées grâce à des \URLs et accessibles grâce à l'\api
 Image de \iiif. La tâche est lancée sur un ensemble de témoins. Pour
@@ -190,7 +190,7 @@ La tâche de vectorisation consiste en la génération de fichiers \svgs à
 partir des images extraites. Tout comme la recherche de similarité,
 cette opération s'applique à des régions d'images préalablement
 indexées. La vectorisation peut être intégrée à différents points du
-pipeline de traitement~; elle peut être exécutée avant ou après la
+\textit{pipeline} de traitement~; elle peut être exécutée avant ou après la
 recherche de similarité, en fonction des besoins.
 
 Comme pour la similarité, une liste d'\URL structurées dans un fichier
@@ -206,21 +206,21 @@ L'inférence du modèle de vision nécessite des ressources
 computationnelles importantes. L'implémentation dans l'\api doit prendre
 en compte ces exigences de performance et garantir en conséquence une
 scalabilité adéquate. Pour éviter la surcharge et gérer les multiples
-requêtes sur le \gpu, l'\api utilise un système de threading. Ce système,
+requêtes sur le \gpu, l'\api utilise un système de \textit{threading}. Ce système,
 nommé Dramatiq, gère les tâches de fond et traite les requêtes entrantes
 en imposant leur traitement séquentiel. Dramatiq fonctionne avec Redis,
 un magasin de valeurs-clés, servant de base de données intermédiaire qui
 assigne les tâches aux \emph{workers}. Dramatiq gère la bonne tenue des
 tâches, faisant l'intermédiaire entre les \textit{workers} et le système de
 \textit{login}. De la même manière, pour la réception ou l'envoi de données
-volumineuses, l'application emploie Celery, un système de threading
+volumineuses, l'application emploie Celery, un système de \textit{threading}
 similaire.
 
 \begin{figure}[H]
           \begin{center}
           \includegraphics[height=4cm]{figues/dramatiq.png}
           \end{center}
-          \caption{Fonctionnement du système de \textit{Threading} de l'\api.}
+          \caption{Fonctionnement du système de \textit{threading} de l'\api.}
           \label{fig:dramatiq} \end{figure}
 
 Le cœur de ce système modulaire réside dans le développement de trois
@@ -249,7 +249,7 @@ analysis can help to answer to our research questions, but may also
 spark new hypotheses that can be followed using a bouquet of methods
 that Art History has. For some, Big Data seems to be the end of theory
 but one could also argue that Data Analytics helps us to see the big
-picture and create new hypotheses for qualitative research.48 This way,
+picture and create new hypotheses for qualitative research. This way,
 the computer remains a tool in the hands of the researcher, or as Steve
 Jobs defined the role of the computer to the human,''a bicycle for the
 mind''.\footcite[p.28]{klinke_big_2016}
@@ -320,7 +320,7 @@ de corpus volumineux. Cette approche hybride, combinant l'efficacité de
 l'apprentissage profond et la précision de l'expertise humaine, optimise
 ainsi la qualité globale des résultats.
 
-La table \textit{Regions} intègre un attribut booléen \texttt{is\_validated} indiquant si
+La table \texttt{Regions} intègre un attribut booléen \texttt{is\_validated} indiquant si
 les annotations automatiques associées à une numérisation ont été
 approuvées par un chercheur.se. Pareillement, afin d'évaluer la pertinence
 des scores attribués par l'algorithme de recherche de similarité, une
@@ -353,7 +353,7 @@ Pour conclure, l'application, conçue selon une architecture modulaire,
 s'adresse aussi bien aux utilisateur.rices recherchant des fonctionnalités de
 base qu'aux équipes de recherche souhaitant personnaliser leur
 environnement de travail. En offrant un ensemble de modules génériques,
-le projet \eida fournit un point de départ solide pour des projets plus
+le projet \aikon fournit un point de départ solide pour des projets plus
 ambitieux. Les équipes d'ingénieurs peuvent ainsi se concentrer sur le
 développement de modules spécifiques répondant à leurs besoins précis,
 sans avoir à reconstruire l'ensemble de la plateforme. Cette approche
